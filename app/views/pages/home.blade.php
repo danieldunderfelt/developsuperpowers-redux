@@ -7,6 +7,6 @@
 		<p>
 			I'm Daniel, a full-stack web developer from Finland.
 		</p>
-		<div class="divider"></div>
+		<div class="divider small"></div>
 	</article>
 @stop

@@ -349,8 +349,7 @@ body {
 
 h1, h2, h3, h4 {
   margin-top: 0;
-  font-weight: inherit;
-  font-family: "Old Standard TT", Georgia, serif; }
+  font-weight: inherit; }
 
 h1 {
   font-size: 4em;
@@ -362,12 +361,14 @@ h2 {
   font-size: 2.5em;
   line-height: 1em;
   font-weight: 400;
+  font-family: "Old Standard TT", Georgia, serif;
   font-style: italic; }
 
 h3 {
   font-size: 1.2em;
   font-weight: 400;
-  font-style: italic; }
+  margin-bottom: 1em;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2); }
 
 p {
   letter-spacing: 0.04rem;
@@ -448,6 +449,9 @@ input[type="checkbox"] {
   width: 60%;
   float: left;
   padding-left: 7%; }
+
+.interests {
+  list-style: square; }
 
 .sidebar {
   padding-top: 2em;
