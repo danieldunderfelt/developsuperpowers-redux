@@ -18,24 +18,27 @@ body {
 h1, h2, h3, h4 {
 	margin-top: 0;
 	font-weight: inherit;
+	font-family: $oldstandard;
 }
 
 h1 {
 	font-size: 4em;
 	line-height: 1em;
 	font-weight: 900;
+	font-family: $sourcesans;
 }
 
 h2 {
 	font-size: 2.5em;
 	line-height: 1em;
 	font-weight: 400;
-	font-family: $oldstandard;
 	font-style: italic;
 }
 
 h3 {
-	font-size: 1em;
+	font-size: 1.2em;
+	font-weight: 400;
+	font-style: italic;
 }
 
 h4 {
@@ -46,6 +49,7 @@ p {
 	letter-spacing: 0.04rem;
 	font-size: 1em;
 	line-height: 1.5em;
+	margin-bottom: 1.5em;
 }
 
 strong {

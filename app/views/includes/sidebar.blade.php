@@ -20,7 +20,7 @@
 			</li>
 			<li>
 				<p>
-					Current place of employ:<br>
+					Employed at:<br>
 					<a href="http://activearkjwt.com">
 						<strong>Activeark JWT, Helsinki</strong>
 					</a>
