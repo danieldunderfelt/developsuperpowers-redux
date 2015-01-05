@@ -431,7 +431,7 @@ input[type="checkbox"] {
 
 .container {
   width: 960px;
-  margin: 100px auto 0; }
+  margin: 50px auto 0; }
   .container:after {
     content: "";
     display: table;
@@ -455,7 +455,7 @@ input[type="checkbox"] {
   .sidebar p {
     font-size: 0.8em; }
   .sidebar .profile-pic {
-    width: 40%;
+    width: 50%;
     display: inline-block;
     border-radius: 50%;
     overflow: hidden;
