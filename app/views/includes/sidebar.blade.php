@@ -29,7 +29,9 @@
 			<li>
 				<p>
 					Email:<br>
-					<strong>dunderfeltdaniel@gmail.com</strong>
+					<a href="mailto:dunderfeltdaniel@gmail.com">
+						<strong>dunderfeltdaniel@gmail.com</strong>
+					</a>
 				</p>
 			</li>
 			<li>

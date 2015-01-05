@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Develop Superpowers</title>
 
-	<link href='http://fonts.googleapis.com/css?family=Old+Standard+TT:400,400italic,700|Roboto:500,400,100,300,500italic,300italic,900' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,700,900,400italic,700italic,900italic|Old+Standard+TT:400,400italic' rel='stylesheet' type='text/css'>
 
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>

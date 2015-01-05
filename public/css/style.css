@@ -335,7 +335,7 @@ ul {
  * the bp() mixin for predefined breakpoints.
  */
 html {
-  font-family: "Roboto", Arial, sans-serif;
+  font-family: "Source Sans Pro", Arial, sans-serif;
   font-size: 14px; }
   @media screen and (min-width: 480px) {
     html {
@@ -345,25 +345,23 @@ html {
       font-size: 18px; } }
 
 body {
-  font-weight: 300; }
+  font-weight: 400; }
 
 h1, h2, h3, h4 {
   margin-top: 0;
   font-weight: inherit; }
 
 h1 {
-  font-size: 4.444em;
+  font-size: 4em;
   line-height: 1em;
-  font-weight: 100; }
+  font-weight: 900; }
 
 h2 {
   font-size: 2.5em;
   line-height: 1em;
   font-weight: 400;
-  font-style: italic;
-  font-family: "Old Standard TT", Georgia, serif; }
-  h2 + .divider {
-    margin-top: -1.3rem; }
+  font-family: "Old Standard TT", Georgia, serif;
+  font-style: italic; }
 
 h3 {
   font-size: 1em; }
@@ -374,13 +372,13 @@ p {
   line-height: 1.5em; }
 
 strong {
-  font-weight: 500; }
+  font-weight: 700; }
 
 a {
   color: #0086e4;
   text-decoration: none; }
   a:hover {
-    color: #8CCC00; }
+    color: #e40091; }
 
 /*
  * Add global form styles here.
@@ -454,6 +452,8 @@ input[type="checkbox"] {
   border-right: 1px solid rgba(0, 0, 0, 0.2); }
   .sidebar p {
     font-size: 0.8em; }
+  .sidebar h2 {
+    margin-bottom: 0.5em; }
   .sidebar .profile-pic {
     width: 50%;
     display: inline-block;
@@ -464,4 +464,8 @@ input[type="checkbox"] {
       max-width: 100%;
       display: block; }
   .sidebar .about li:after {
-    color: black; }
+    color: black;
+    font-size: 1.3em;
+    color: #7f7f7f; }
+  .sidebar .about li:last-child:after {
+    display: none; }

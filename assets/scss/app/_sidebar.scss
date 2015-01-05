@@ -8,6 +8,10 @@
 		font-size: 0.8em;
 	}
 
+	h2 {
+		margin-bottom: 0.5em;
+	}
+
 	.profile-pic {
 		width: 50%;
 		display: inline-block;
@@ -28,6 +32,15 @@
 
 			&:after {
 				color: black;
+				font-size: 1.3em;
+				color: $grey;
+			}
+
+			&:last-child {
+
+				&:after {
+					display: none;
+				}
 			}
 		}
 	}
