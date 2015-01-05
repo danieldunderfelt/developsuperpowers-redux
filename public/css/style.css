@@ -415,7 +415,7 @@ input[type="checkbox"] {
  *	Here you may include other stylesheets from the 'modules' folder.
  *	You may also add short style snippets that don't warrant their own files.
  */
-.divider-icon:after, .divider:after, .sidebar .about li:after {
+.divider-icon:after, .divider:after {
   content: "§";
   display: inline-block;
   font-weight: 400;
@@ -446,6 +446,7 @@ input[type="checkbox"] {
   padding-right: 3%; }
 
 .page-container {
+  padding-top: 1.5em;
   width: 60%;
   float: left;
   padding-left: 7%; }
@@ -459,8 +460,7 @@ input[type="checkbox"] {
   text-align: center;
   border-right: 1px solid rgba(0, 0, 0, 0.2); }
   .sidebar p {
-    font-size: 0.8em; }
-  .sidebar h2 {
+    font-size: 0.8em;
     margin-bottom: 0.5em; }
   .sidebar .profile-pic {
     width: 50%;
@@ -471,9 +471,21 @@ input[type="checkbox"] {
     .sidebar .profile-pic img {
       max-width: 100%;
       display: block; }
-  .sidebar .about li:after {
-    color: black;
-    font-size: 1.3em;
-    color: #7f7f7f; }
-  .sidebar .about li:last-child:after {
-    display: none; }
+  .sidebar .about > p {
+    margin-bottom: 2em; }
+  .sidebar .about li {
+    border-bottom: 0;
+    margin-bottom: 2em; }
+    .sidebar .about li:last-child:after {
+      display: none; }
+    .sidebar .about li p {
+      margin-bottom: 1em; }
+    .sidebar .about li.cols {
+      width: 50%;
+      float: left; }
+      .sidebar .about li.cols:after {
+        content: "";
+        display: table;
+        clear: both; }
+      .sidebar .about li.cols:nth-child(even) {
+        border-left: 0; }

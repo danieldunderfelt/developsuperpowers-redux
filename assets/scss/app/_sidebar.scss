@@ -6,9 +6,6 @@
 
 	p {
 		font-size: 0.8em;
-	}
-
-	h2 {
 		margin-bottom: 0.5em;
 	}
 
@@ -27,19 +24,35 @@
 
 	.about {
 
-		li {
-			@extend .divider-icon;
+		> p {
+			margin-bottom: 2em;
+		}
 
-			&:after {
-				color: black;
-				font-size: 1.3em;
-				color: $grey;
-			}
+		li {
+			//padding: 0.5em;
+			//border: 1px dashed rgba(black, 0.2);
+			border-bottom: 0;
+			margin-bottom: 2em;
 
 			&:last-child {
+				//border-bottom: 1px dashed rgba(black, 0.2);
 
 				&:after {
 					display: none;
+				}
+			}
+
+			p {
+				margin-bottom: 1em;
+			}
+
+			&.cols {
+				@include clear;
+				width: 50%;
+				float: left;
+
+				&:nth-child(even) {
+					border-left: 0;
 				}
 			}
 		}
