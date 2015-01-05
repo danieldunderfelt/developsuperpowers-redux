@@ -1,0 +1,24 @@
+.divider-icon {
+
+	&:after {
+		content: "§";
+		display: inline-block;
+		font-weight: 400;
+		font-family: $oldstandard;
+		font-size: 1em;
+		color: $grey;
+		transform: rotateZ(90deg);
+	}
+}
+
+.divider {
+	width: 100%;
+	text-align: center;
+	font-size: 3rem;
+
+	@extend .divider-icon;
+
+	&.small {
+		font-size: 1.5rem;
+	}
+}

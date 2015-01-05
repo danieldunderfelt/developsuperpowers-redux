@@ -1,0 +1,38 @@
+{
+  "name": "lean",
+  "version": "1.0.0",
+  "description": "Lean innovation",
+  "main": "public/js/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Activeark JWT/Daniel Dunderfelt",
+  "license": "Proprietary",
+  "devDependencies": {
+    "browser-sync": "^1.5.8",
+    "gulp": "^3.8.8",
+    "gulp-autoprefixer": "^1.0.1",
+    "gulp-filter": "^1.0.2",
+    "gulp-sass": "^0.7.1",
+    "gulp-notify": "^2.0.0",
+    "browserify": "^7.0.0",
+    "browserify-shim": "^3.8.1",
+    "es6ify": "^1.4.0",
+    "vinyl-transform": "0.0.1"
+  },
+  "browserify": {
+    "transform": [
+      "es6ify",
+      "browserify-shim"
+    ]
+  },
+  "browser": {
+    "traceur-runtime": "./public/js/vendor/traceur-runtime.js"
+  },
+  "browserify-shim": {
+    "traceur-runtime": "global:$traceurRuntime"
+  },
+  "dependencies": {
+    "jquery": "^2.1.1"
+  }
+}

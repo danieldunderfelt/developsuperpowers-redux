@@ -1,0 +1,25 @@
+html {
+
+}
+
+body {
+
+}
+
+.container {
+	@include clear;
+	width: 960px;
+	margin: 100px auto 0;
+}
+
+.sidebar {
+	width: 30%;
+	float: left;
+	padding-right: 3%;
+}
+
+.page-container {
+	width: 60%;
+	float: left;
+	padding-left: 7%;
+}
