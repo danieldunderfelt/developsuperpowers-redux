@@ -2,6 +2,7 @@
 @section('page')
 	<article class="page home-page">
 		<header>
+			{{ Atom::display(1) }}
 			<h1>
 				Hello!
 			</h1>

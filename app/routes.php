@@ -12,3 +12,4 @@
 */
 
 Route::get('/', ['as' => 'home', 'uses' => 'PageController@index']);
+Route::get('/{page}', ['as' => 'content.view.page', 'uses' => '\Superpowers\Controllers\ContentController@view']);
