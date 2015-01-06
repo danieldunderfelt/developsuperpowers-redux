@@ -22,9 +22,10 @@ body {
 	padding-top: 1.5em;
 	width: 60%;
 	float: left;
-	padding-left: 7%;
-}
+	padding-left: 5%;
 
-.interests {
-	list-style: square;
+	h2, p {
+		margin-top: 0;
+		margin-bottom: 1em;
+	}
 }

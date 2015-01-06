@@ -1,15 +1,42 @@
 @extends('page')
 @section('page')
-	<article class="page">
-		<h1>
-			Hello!
-		</h1>
-		<p>
-			I'm Daniel, a full-stack web developer from Finland. I work with Javascript, PHP and Sass, and my application framework of choice is <a href="http://laravel.com">Laravel</a>.
-		</p>
-		<p>
-			I have some code at <a href="https://github.com/danieldunderfelt">Github</a>, and I create more all the time. I'll populate this site with a full portfolio at some point.
-		</p>
-		<div class="divider small"></div>
+	<article class="page home-page">
+		<header>
+			<h1>
+				Hello!
+			</h1>
+		</header>
+		<section class="intro">
+			<p>
+				I'm Daniel, a full-stack web developer from Finland. I work with Javascript, PHP and Sass, and my application framework of choice is <a href="http://laravel.com">Laravel</a>.
+			</p>
+			<p>
+				I have some code at <a href="https://github.com/danieldunderfelt">Github</a>, and I create more all the time. I'll add a full portfolio at some point.
+			</p>
+		</section>
+		<section class="projects">
+			<h2>
+				Cool projects in progress:
+			</h2>
+			<article class="project">
+				<h3>
+					<a href="https://github.com/danieldunderfelt/default.js">Skeleton.js</a>
+				</h3>
+				<p>
+					Have you ever copied useful files between projects over and over again? I have. I'm talking about your snippet files, your nice little helpers or your Sass mixins. Wouldn't it be nice to throw one command into the terminal and have all of that setup for new projects just how you are used to have them in that previous project? That's what Skeleton.js aims to help with.
+				</p>
+				<p>
+					It is also my first foray into node.js and promises.
+				</p>
+			</article>
+			<article class="project">
+				<h3>
+					<a href="https://github.com/danieldunderfelt/house">House</a>
+				</h3>
+				<p>
+					House is a game played on a 10x10 grid where you claim "houses" by drawing a single line between two cells. If the line you drew closes the square, the house is yours and you get to draw again. This can be played with a minimum of two people. I thought "hey, I could probably make this into a silly browser game", so I started. The game uses websockets to enable multiplayer.
+				</p>
+			</article>
+		</section>
 	</article>
 @stop

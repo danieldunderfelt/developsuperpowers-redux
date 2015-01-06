@@ -1,0 +1,21 @@
+.home-page {
+
+	> section {
+		@extend .divider-icon;
+
+		&:after {
+			font-size: 1.5em;
+			width: 100%;
+			text-align: center;
+		}
+	}
+
+	.project {
+		margin-bottom: 2em;
+
+		h3 {
+			border-bottom: 1px solid rgba($grey, 0.4);
+			padding-bottom: 0.3em;
+		}
+	}
+}

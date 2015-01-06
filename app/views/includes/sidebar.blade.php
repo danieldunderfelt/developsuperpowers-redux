@@ -13,7 +13,7 @@
 	</header>
 	<article class="about">
 		<p>
-			I am a passionate web developer with a perpetual interest of learning new things and drive to find and conquer new challenges.
+			I am a passionate web developer with a perpetual interest of learning new things and a drive to find and conquer new challenges.
 		</p>
 		<ul>
 			<li>

@@ -348,33 +348,33 @@ body {
   font-weight: 400; }
 
 h1, h2, h3, h4 {
-  margin-top: 0;
+  margin: 0;
   font-weight: inherit; }
 
 h1 {
   font-size: 4em;
   line-height: 1em;
   font-weight: 900;
-  font-family: "Source Sans Pro", Arial, sans-serif; }
+  font-family: "Source Sans Pro", Arial, sans-serif;
+  margin-bottom: 0.5em; }
 
 h2 {
-  font-size: 2.5em;
+  font-size: 2em;
   line-height: 1em;
-  font-weight: 400;
   font-family: "Old Standard TT", Georgia, serif;
-  font-style: italic; }
+  font-style: italic;
+  font-weight: 400;
+  margin-bottom: 0.5em; }
 
 h3 {
-  font-size: 1.2em;
-  font-weight: 400;
-  margin-bottom: 1em;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2); }
+  font-size: 1em;
+  font-weight: 900;
+  margin-bottom: 0.6em; }
 
 p {
-  letter-spacing: 0.04rem;
   font-size: 1em;
-  line-height: 1.5em;
-  margin-bottom: 1.5em; }
+  line-height: 1.3em;
+  margin-bottom: 2em; }
 
 strong {
   font-weight: 700; }
@@ -415,7 +415,7 @@ input[type="checkbox"] {
  *	Here you may include other stylesheets from the 'modules' folder.
  *	You may also add short style snippets that don't warrant their own files.
  */
-.divider-icon:after, .divider:after {
+.divider-icon:after, .divider:after, .home-page > section:after {
   content: "§";
   display: inline-block;
   font-weight: 400;
@@ -428,7 +428,8 @@ input[type="checkbox"] {
 .divider {
   width: 100%;
   text-align: center;
-  font-size: 3rem; }
+  font-size: 3rem;
+  margin: 0.5em 0; }
   .divider.small {
     font-size: 1.5rem; }
 
@@ -449,10 +450,10 @@ input[type="checkbox"] {
   padding-top: 1.5em;
   width: 60%;
   float: left;
-  padding-left: 7%; }
-
-.interests {
-  list-style: square; }
+  padding-left: 5%; }
+  .page-container h2, .page-container p {
+    margin-top: 0;
+    margin-bottom: 1em; }
 
 .sidebar {
   padding-top: 2em;
@@ -462,6 +463,10 @@ input[type="checkbox"] {
   .sidebar p {
     font-size: 0.8em;
     margin-bottom: 0.5em; }
+  .sidebar h2 {
+    font-size: 2.5em; }
+  .sidebar .divider {
+    margin: 0; }
   .sidebar .profile-pic {
     width: 50%;
     display: inline-block;
@@ -489,3 +494,13 @@ input[type="checkbox"] {
         clear: both; }
       .sidebar .about li.cols:nth-child(even) {
         border-left: 0; }
+
+.home-page > section:after {
+  font-size: 1.5em;
+  width: 100%;
+  text-align: center; }
+.home-page .project {
+  margin-bottom: 2em; }
+  .home-page .project h3 {
+    border-bottom: 1px solid rgba(127, 127, 127, 0.4);
+    padding-bottom: 0.3em; }
