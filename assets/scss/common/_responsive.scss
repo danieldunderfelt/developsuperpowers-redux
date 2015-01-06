@@ -6,9 +6,9 @@
  */
 
 $bp-wide: 1440px;
-$bp-desktop: 1024px;
-$bp-tablet: 768px;
-$bp-mobile: 480px;
+$bp-desktop: 1366px;
+$bp-tablet: 1024px;
+$bp-mobile: 730px;
 
 @mixin r($value, $operator: "min-width", $query: 'screen') {
 	@media #{$query} and (#{$operator}: #{$value}) {

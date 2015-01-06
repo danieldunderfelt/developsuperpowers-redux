@@ -1,5 +1,7 @@
 html {
-
+	background: url('../img/bg.png') no-repeat center bottom;
+	background-size: cover;
+	height: 100%;
 }
 
 body {
@@ -8,21 +10,42 @@ body {
 
 .container {
 	@include clear;
-	width: 960px;
-	margin: 50px auto 0;
+	width: 100%;
+	padding: 0 1em;
+
+	@include bp(tablet) {
+		margin: 50px auto 0;
+	}
+
+	@include bp(desktop) {
+		width: 960px;
+	}
 }
 
 .sidebar {
-	width: 30%;
-	float: left;
-	padding-right: 3%;
+	width: 100%;
+
+	@include r(540px) {
+		width: 70%;
+		margin: 0 auto;
+	}
+
+	@include bp(tablet) {
+		width: 30%;
+		float: left;
+		margin: 0;
+		padding: 0 3% 0 0;
+	}
 }
 
 .page-container {
-	padding-top: 1.5em;
-	width: 60%;
-	float: left;
-	padding-left: 5%;
+
+	@include bp(tablet) {
+		padding-top: 1.5em;
+		width: 60%;
+		float: left;
+		padding-left: 5%;
+	}
 
 	h2, p {
 		margin-top: 0;

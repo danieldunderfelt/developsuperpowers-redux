@@ -42,7 +42,8 @@
 			</li>
 			<li class="cols">
 				<p>
-					git checkout <a href="https://github.com/danieldunderfelt">
+					git checkout<br>
+					<a href="https://github.com/danieldunderfelt">
 						<strong>danieldunderfelt</strong>
 					</a>
 				</p>

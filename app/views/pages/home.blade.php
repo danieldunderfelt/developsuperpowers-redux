@@ -11,7 +11,7 @@
 				I'm Daniel, a full-stack web developer from Finland. I work with Javascript, PHP and Sass, and my application framework of choice is <a href="http://laravel.com">Laravel</a>.
 			</p>
 			<p>
-				I have some code at <a href="https://github.com/danieldunderfelt">Github</a>, and I create more all the time. I'll add a full portfolio at some point.
+				I have some code at <a href="https://github.com/danieldunderfelt">Github</a>, and I create more all the time. Why not check it out?
 			</p>
 		</section>
 		<section class="projects">
@@ -23,10 +23,7 @@
 					<a href="https://github.com/danieldunderfelt/default.js">Skeleton.js</a>
 				</h3>
 				<p>
-					Have you ever copied useful files between projects over and over again? I have. I'm talking about your snippet files, your nice little helpers or your Sass mixins. Wouldn't it be nice to throw one command into the terminal and have all of that setup for new projects just how you are used to have them in that previous project? That's what Skeleton.js aims to help with.
-				</p>
-				<p>
-					It is also my first foray into node.js and promises.
+					Have you ever copied useful files between projects over and over again? I have. I'm talking about your snippet files, your nice little helpers or your Sass mixins. Wouldn't it be nice to throw one command into the terminal and have all of that setup for new projects just how you are used to have them in that previous project? That's where Skeleton.js comes in.
 				</p>
 			</article>
 			<article class="project">

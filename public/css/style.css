@@ -336,16 +336,13 @@ ul {
  */
 html {
   font-family: "Source Sans Pro", Arial, sans-serif;
-  font-size: 14px; }
-  @media screen and (min-width: 480px) {
-    html {
-      font-size: 16px; } }
-  @media screen and (min-width: 1024px) {
+  font-size: 16px; }
+  @media screen and (min-width: 1366px) {
     html {
       font-size: 18px; } }
 
 body {
-  font-weight: 400; }
+  font-weight: 300; }
 
 h1, h2, h3, h4 {
   margin: 0;
@@ -374,10 +371,11 @@ h3 {
 p {
   font-size: 1em;
   line-height: 1.3em;
+  margin-top: 0;
   margin-bottom: 2em; }
 
 strong {
-  font-weight: 700; }
+  font-weight: 500; }
 
 a {
   color: #0086e4;
@@ -415,12 +413,16 @@ input[type="checkbox"] {
  *	Here you may include other stylesheets from the 'modules' folder.
  *	You may also add short style snippets that don't warrant their own files.
  */
-.divider-icon:after, .divider:after, .home-page > section:after {
+.divider-icon:after, .divider:after, .sidebar:after, .home-page > section:after {
   content: "§";
+  line-height: 0.86em;
+  height: 1em;
+  vertical-align: middle;
   display: inline-block;
+  text-align: center;
   font-weight: 400;
   font-family: "Old Standard TT", Georgia, serif;
-  font-size: 1em;
+  font-size: 3rem;
   color: #7f7f7f;
   -webkit-transform: rotateZ(90deg);
           transform: rotateZ(90deg); }
@@ -428,54 +430,96 @@ input[type="checkbox"] {
 .divider {
   width: 100%;
   text-align: center;
-  font-size: 3rem;
   margin: 0.5em 0; }
-  .divider.small {
-    font-size: 1.5rem; }
+
+.js-icon {
+  width: 2em;
+  color: #222222; }
+
+html {
+  background: url('../img/bg.png') no-repeat center bottom;
+  background-size: cover;
+  height: 100%; }
 
 .container {
-  width: 960px;
-  margin: 50px auto 0; }
+  width: 100%;
+  padding: 0 1em; }
   .container:after {
     content: "";
     display: table;
     clear: both; }
+  @media screen and (min-width: 730px) {
+    .container {
+      margin: 50px auto 0; } }
+  @media screen and (min-width: 1366px) {
+    .container {
+      width: 960px; } }
 
 .sidebar {
-  width: 30%;
-  float: left;
-  padding-right: 3%; }
+  width: 100%; }
+  @media screen and (min-width: 540px) {
+    .sidebar {
+      width: 70%;
+      margin: 0 auto; } }
+  @media screen and (min-width: 730px) {
+    .sidebar {
+      width: 30%;
+      float: left;
+      margin: 0;
+      padding: 0 3% 0 0; } }
 
-.page-container {
-  padding-top: 1.5em;
-  width: 60%;
-  float: left;
-  padding-left: 5%; }
-  .page-container h2, .page-container p {
-    margin-top: 0;
-    margin-bottom: 1em; }
+@media screen and (min-width: 730px) {
+  .page-container {
+    padding-top: 1.5em;
+    width: 60%;
+    float: left;
+    padding-left: 5%; } }
+.page-container h2, .page-container p {
+  margin-top: 0;
+  margin-bottom: 1em; }
 
 .sidebar {
   padding-top: 2em;
-  padding-bottom: 2em;
-  text-align: center;
-  border-right: 1px solid rgba(0, 0, 0, 0.2); }
+  padding-bottom: 1em;
+  text-align: center; }
+  .sidebar:after {
+    width: 100%; }
+  @media screen and (min-width: 730px) {
+    .sidebar {
+      padding-bottom: 2em;
+      border-right: 1px solid rgba(0, 0, 0, 0.2); }
+      .sidebar:after {
+        display: none; } }
   .sidebar p {
-    font-size: 0.8em;
     margin-bottom: 0.5em; }
   .sidebar h2 {
-    font-size: 2.5em; }
+    font-size: 2em; }
+    @media screen and (min-width: 1366px) {
+      .sidebar h2 {
+        font-size: 2.5em; } }
   .sidebar .divider {
     margin: 0; }
   .sidebar .profile-pic {
-    width: 50%;
+    width: 30%;
     display: inline-block;
     border-radius: 50%;
     overflow: hidden;
-    margin-bottom: 2em; }
+    margin-bottom: 2em;
+    transition: all 0.3s ease-out; }
+    @media screen and (min-width: 730px) {
+      .sidebar .profile-pic {
+        width: 50%; } }
+    .sidebar .profile-pic:hover {
+      -webkit-transform: scale(1.2);
+          -ms-transform: scale(1.2);
+              transform: scale(1.2); }
     .sidebar .profile-pic img {
+      transition: all 0.3s ease-out;
       max-width: 100%;
       display: block; }
+  @media screen and (min-width: 730px) {
+    .sidebar .about {
+      font-size: 0.9em; } }
   .sidebar .about > p {
     margin-bottom: 2em; }
   .sidebar .about li {
@@ -485,18 +529,16 @@ input[type="checkbox"] {
       display: none; }
     .sidebar .about li p {
       margin-bottom: 1em; }
-    .sidebar .about li.cols {
-      width: 50%;
-      float: left; }
-      .sidebar .about li.cols:after {
-        content: "";
-        display: table;
-        clear: both; }
-      .sidebar .about li.cols:nth-child(even) {
-        border-left: 0; }
+    @media screen and (min-width: 1366px) {
+      .sidebar .about li.cols {
+        width: 50%;
+        float: left; }
+        .sidebar .about li.cols:after {
+          content: "";
+          display: table;
+          clear: both; } }
 
 .home-page > section:after {
-  font-size: 1.5em;
   width: 100%;
   text-align: center; }
 .home-page .project {
