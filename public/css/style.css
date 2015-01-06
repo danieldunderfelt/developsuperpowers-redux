@@ -436,11 +436,6 @@ input[type="checkbox"] {
   width: 2em;
   color: #222222; }
 
-html {
-  background: url('../img/bg.png') no-repeat center bottom;
-  background-size: cover;
-  height: 100%; }
-
 .container {
   width: 100%;
   padding: 0 1em; }
