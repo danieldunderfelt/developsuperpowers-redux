@@ -1,7 +1,10 @@
 html {
-	//background: url('../img/bg.png') no-repeat center bottom;
-	//background-size: cover;
-	//height: 100%;
+	background: url('../img/bg.png') no-repeat center bottom;
+	background-size: cover;
+
+	@include bp(tablet) {
+		height: 100%;
+	}
 }
 
 body {
@@ -50,5 +53,13 @@ body {
 	h2, p {
 		margin-top: 0;
 		margin-bottom: 1em;
+	}
+
+	.divider {
+		margin: 2rem 0;
+
+		@include bp(tablet) {
+			margin: 1.5rem 0;
+		}
 	}
 }

@@ -2,11 +2,6 @@
 	padding-top: 2em;
 	padding-bottom: 1em;
 	text-align: center;
-	@extend .divider-icon;
-
-	&:after {
-		width: 100%;
-	}
 
 	@include bp(tablet) {
 		padding-bottom: 2em;
@@ -27,10 +22,6 @@
 		@include bp(desktop) {
 			font-size: 2.5em;
 		}
-	}
-
-	.divider {
-		margin: 0;
 	}
 
 	.profile-pic {

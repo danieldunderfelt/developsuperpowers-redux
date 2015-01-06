@@ -4,7 +4,10 @@ class UI {
 
 	constructor() {
 		var icons = document.querySelectorAll('.js-icon');
-		Geomicons.inject(icons);
+
+		if(icons.length > 0) {
+			Geomicons.inject(icons);
+		}
 	}
 
 	initialize() {

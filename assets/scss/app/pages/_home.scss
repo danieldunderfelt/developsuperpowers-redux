@@ -1,12 +1,7 @@
 .home-page {
 
 	> section {
-		@extend .divider-icon;
 
-		&:after {
-			width: 100%;
-			text-align: center;
-		}
 	}
 
 	.project {

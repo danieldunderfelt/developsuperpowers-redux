@@ -413,7 +413,7 @@ input[type="checkbox"] {
  *	Here you may include other stylesheets from the 'modules' folder.
  *	You may also add short style snippets that don't warrant their own files.
  */
-.divider-icon:after, .divider:after, .sidebar:after, .home-page > section:after {
+.divider-icon:after, .divider:after {
   content: "§";
   line-height: 0.86em;
   height: 1em;
@@ -430,11 +430,28 @@ input[type="checkbox"] {
 .divider {
   width: 100%;
   text-align: center;
-  margin: 0.5em 0; }
+  margin: 1rem 0; }
 
 .js-icon {
-  width: 2em;
+  width: 1.3em;
   color: #222222; }
+
+@media screen and (min-width: 730px) {
+  .mobile-only {
+    display: none; } }
+
+.mobile-hidden {
+  display: none; }
+  @media screen and (min-width: 730px) {
+    .mobile-hidden {
+      display: block; } }
+
+html {
+  background: url('../img/bg.png') no-repeat center bottom;
+  background-size: cover; }
+  @media screen and (min-width: 730px) {
+    html {
+      height: 100%; } }
 
 .container {
   width: 100%;
@@ -472,13 +489,16 @@ input[type="checkbox"] {
 .page-container h2, .page-container p {
   margin-top: 0;
   margin-bottom: 1em; }
+.page-container .divider {
+  margin: 2rem 0; }
+  @media screen and (min-width: 730px) {
+    .page-container .divider {
+      margin: 1.5rem 0; } }
 
 .sidebar {
   padding-top: 2em;
   padding-bottom: 1em;
   text-align: center; }
-  .sidebar:after {
-    width: 100%; }
   @media screen and (min-width: 730px) {
     .sidebar {
       padding-bottom: 2em;
@@ -492,8 +512,6 @@ input[type="checkbox"] {
     @media screen and (min-width: 1366px) {
       .sidebar h2 {
         font-size: 2.5em; } }
-  .sidebar .divider {
-    margin: 0; }
   .sidebar .profile-pic {
     width: 30%;
     display: inline-block;
@@ -533,9 +551,6 @@ input[type="checkbox"] {
           display: table;
           clear: both; } }
 
-.home-page > section:after {
-  width: 100%;
-  text-align: center; }
 .home-page .project {
   margin-bottom: 2em; }
   .home-page .project h3 {

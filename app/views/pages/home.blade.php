@@ -14,6 +14,7 @@
 				I have some code at <a href="https://github.com/danieldunderfelt">Github</a>, and I create more all the time. Why not check it out?
 			</p>
 		</section>
+		<div class="divider"></div>
 		<section class="projects">
 			<h2>
 				Cool projects in progress:
@@ -35,5 +36,6 @@
 				</p>
 			</article>
 		</section>
+		<div class="divider"></div>
 	</article>
 @stop

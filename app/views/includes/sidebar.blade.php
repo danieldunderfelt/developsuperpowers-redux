@@ -26,7 +26,7 @@
 			</li>
 			<li>
 				<p>
-					Email:<br>
+					<span data-icon="mail" class="js-icon"></span><br>
 					<a href="mailto:dunderfeltdaniel@gmail.com">
 						<strong>dunderfeltdaniel@gmail.com</strong>
 					</a>
@@ -34,7 +34,7 @@
 			</li>
 			<li class="cols">
 				<p>
-					Twitter:<br>
+					<span data-icon="twitter" class="js-icon"></span><br>
 					<a href="https://twitter.com/ddunderfelt">
 						<strong>@ddunderfelt</strong>
 					</a>
@@ -42,7 +42,7 @@
 			</li>
 			<li class="cols">
 				<p>
-					git checkout<br>
+					<span data-icon="github" class="js-icon"></span><br>
 					<a href="https://github.com/danieldunderfelt">
 						<strong>danieldunderfelt</strong>
 					</a>
@@ -50,4 +50,5 @@
 			</li>
 		</ul>
 	</article>
+	<div class="divider mobile-only"></div>
 </section>
