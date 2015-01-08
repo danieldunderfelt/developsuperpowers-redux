@@ -6,18 +6,21 @@
 	<title>Develop Superpowers</title>
 
 	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,700,900,400italic,700italic,900italic|Old+Standard+TT:400,400italic' rel='stylesheet' type='text/css'>
-
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	<script>window.jQuery || document.write('<script src="js/vendor/jquery.min.js">\x3C/script>')</script>
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="jspm_packages/npm/vendor/jquery.min.js">\x3C/script>')</script>
 
 	<script>
 		// Picture element HTML5 shiv
 		document.createElement( "picture" );
 	</script>
-	<script src="/js/vendor/picturefill.min.js" async></script>
-	<script src="/js/vendor/traceur-runtime.js"></script>
-	<script src="/js/index.js"></script>
+
+	<script src="jspm_packages/system.js"></script>
+	<script src="config.js"></script>
+	<script>
+		System.import('./js/index').catch(console.error.bind(console));
+	</script>
 </head>
 <body>
 

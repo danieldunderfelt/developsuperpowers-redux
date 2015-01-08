@@ -6,3 +6,4 @@ composer.lock
 .env.php
 .DS_Store
 Thumbs.db
+public/jspm_packages/npm/geomicons-open@0.0.6/docs/assets/.sass-cache

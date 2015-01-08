@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Activeark JWT/Daniel Dunderfelt",
-  "license": "Proprietary",
+  "author": "Daniel Dunderfelt",
+  "license": "MIT",
   "devDependencies": {
     "browser-sync": "^1.5.8",
     "gulp": "^3.8.8",
@@ -35,5 +35,15 @@
   "dependencies": {
     "geomicons-open": "0.0.6",
     "jquery": "^2.1.1"
+  },
+  "jspm": {
+    "directories": {
+      "baseURL": "public",
+      "lib": "public/js"
+    },
+    "dependencies": {
+      "geomicons-open": "npm:geomicons-open@^0.0.6",
+      "jquery": "npm:jquery@^2.1.3"
+    }
   }
 }

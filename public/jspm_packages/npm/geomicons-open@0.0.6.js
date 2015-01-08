@@ -1,0 +1,1 @@
+module.exports = require("npm:geomicons-open@0.0.6/dist/geomicons.min");

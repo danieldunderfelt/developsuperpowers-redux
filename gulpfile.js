@@ -4,7 +4,6 @@ var autoprefixer = require('gulp-autoprefixer');
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 var filter = require('gulp-filter');
-var browserify = require('browserify');
 var transform = require('vinyl-transform');
 var notify = require("gulp-notify");
 
@@ -19,20 +18,6 @@ var handleErrors = function() {
 
     this.emit('end');
 };
-
-gulp.task('browserify', function(){
-
-    var browserified = transform(function(filename) {
-        return browserify(filename, { debug: true })
-               .bundle();
-    }).on('error', handleErrors);
-
-    return gulp.src(['assets/js/index.js'])
-        .pipe(browserified)
-        .on('error', handleErrors)
-        .pipe(gulp.dest('public/js'))
-        .pipe(browserSync.reload({stream: true}));
-});
 
 gulp.task('browser-sync', function() {
     browserSync({
@@ -59,6 +44,6 @@ gulp.task('sass', function () {
 
 gulp.task('default', ['browser-sync'], function () {
     gulp.watch("assets/scss/**/*.scss", ['sass']);
-    gulp.watch("assets/js/**/*.js", ['browserify']);
+    gulp.watch("public/js/**/*.js", ['bs-reload']);
     gulp.watch(["public/*.{php,html}", "app/**/*.php"], ['bs-reload']);
 });
