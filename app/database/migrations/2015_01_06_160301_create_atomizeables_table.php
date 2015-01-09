@@ -18,6 +18,7 @@ class CreateAtomizeablesTable extends Migration {
 			$table->integer('atom_id');
 			$table->integer('atomizeable_id');
 			$table->string('atomizeable_type');
+			$table->integer('order')->nullable();
 		});
 	}
 

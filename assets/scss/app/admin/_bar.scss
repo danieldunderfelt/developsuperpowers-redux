@@ -1,0 +1,31 @@
+.admin-bar {
+	padding: 10px 0;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	background: white;
+	border-top: 1px solid rgba(black, 0.3);
+
+	ul {
+		text-align: center;
+
+		li {
+			display: inline-block;
+			padding: 0 20px;
+			border-right: 1px solid rgba(black, 0.4);
+
+			&:last-child {
+				border-right: 0;
+			}
+		}
+	}
+
+	a {
+		text-transform: uppercase;
+		color: $darkgrey;
+
+		&:hover {
+			color: $blue;
+		}
+	}
+}

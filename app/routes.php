@@ -11,5 +11,8 @@
 |
 */
 
-Route::get('/', ['as' => 'home', 'uses' => 'PageController@index']);
-Route::get('/{page}', ['as' => 'content.view.page', 'uses' => '\Superpowers\Controllers\ContentController@view']);
+Route::get('/', ['as' => 'home', 'uses' => '\Superpowers\Controllers\ContentController@home']);
+
+Route::post('/new/atom', ['as' => 'admin.new.atom', 'uses' => '\Superpowers\Controllers\ContentAdminController@newAtom']);
+
+Route::get('/{page}', ['as' => 'page.view.page', 'uses' => '\Superpowers\Controllers\ContentController@view']);

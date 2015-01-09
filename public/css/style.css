@@ -481,18 +481,18 @@ html {
       padding: 0 3% 0 0; } }
 
 @media screen and (min-width: 730px) {
-  .page-container {
+  .content-container {
     padding-top: 1.5em;
     width: 60%;
     float: left;
     padding-left: 5%; } }
-.page-container h2, .page-container p {
+.content-container h2, .content-container p {
   margin-top: 0;
   margin-bottom: 1em; }
-.page-container .divider {
+.content-container .divider {
   margin: 2rem 0; }
   @media screen and (min-width: 730px) {
-    .page-container .divider {
+    .content-container .divider {
       margin: 1.5rem 0; } }
 
 .sidebar {
@@ -556,3 +556,24 @@ html {
   .home-page .project h3 {
     border-bottom: 1px solid rgba(127, 127, 127, 0.4);
     padding-bottom: 0.3em; }
+
+.admin-bar {
+  padding: 10px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: white;
+  border-top: 1px solid rgba(0, 0, 0, 0.3); }
+  .admin-bar ul {
+    text-align: center; }
+    .admin-bar ul li {
+      display: inline-block;
+      padding: 0 20px;
+      border-right: 1px solid rgba(0, 0, 0, 0.4); }
+      .admin-bar ul li:last-child {
+        border-right: 0; }
+  .admin-bar a {
+    text-transform: uppercase;
+    color: #222222; }
+    .admin-bar a:hover {
+      color: #0086e4; }

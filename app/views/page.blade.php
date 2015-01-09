@@ -1,6 +1,6 @@
 @extends('index')
 @section('content')
-	<section class="page-container">
+	<section class="content-container">
 		@yield('page')
 	</section>
 @stop

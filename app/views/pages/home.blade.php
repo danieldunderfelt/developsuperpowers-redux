@@ -12,7 +12,7 @@
 				I'm Daniel, a full-stack web developer from Finland. I work with Javascript, PHP and Sass, and my application framework of choice is <a href="http://laravel.com">Laravel</a>.
 			</p>
 			<p>
-				I have some code at <a href="https://github.com/danieldunderfelt">Github</a>, and I create more all the time. Why not check it out?
+				I have some code on <a href="https://github.com/danieldunderfelt">Github</a>, and I create more all the time. Why not check it out?
 			</p>
 		</section>
 		<div class="divider"></div>

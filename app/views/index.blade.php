@@ -28,6 +28,7 @@
 		@include('includes.sidebar')
 		@yield('content')
 	</div>
+	@include('includes.adminbar')
 
 	<script>
 	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
