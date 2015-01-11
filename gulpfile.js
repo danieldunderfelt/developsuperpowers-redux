@@ -32,7 +32,7 @@ gulp.task('bs-reload', function () {
 });
 
 gulp.task('sass', function () {
-	return gulp.src('assets/scss/*.scss')
+	return gulp.src('resources/assets/scss/*.scss')
 		.pipe(sass({
 			errLogToConsole: true
 		}))
@@ -43,7 +43,7 @@ gulp.task('sass', function () {
 });
 
 gulp.task('default', ['browser-sync'], function () {
-    gulp.watch("assets/scss/**/*.scss", ['sass']);
+    gulp.watch("resources/assets/scss/**/*.scss", ['sass']);
     gulp.watch("public/js/**/*.js", ['bs-reload']);
-    gulp.watch(["public/*.{php,html}", "app/**/*.php"], ['bs-reload']);
+    gulp.watch(["public/*.{php,html}", "app/**/*.php", "resources/**/*.php"], ['bs-reload']);
 });

@@ -1,1 +1,0 @@
-<div class="superpowers-atom" data-atomid="{{ $atom->id }}" data-atomname="{{ $atom->name }}" data-atomdescription="{{ $atom->description }}">{{ $atom->content }}</div>

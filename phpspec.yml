@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: Superpowers
+        psr4_prefix: Superpowers
+        src_path: app

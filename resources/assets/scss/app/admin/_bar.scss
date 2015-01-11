@@ -1,0 +1,59 @@
+.admin-bar {
+	padding: 0.5em 2em;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	background: white;
+	border-top: 1px solid rgba(black, 0.3);
+	text-align: center;
+	@include clear;
+
+	ul {
+
+		li {
+			display: inline-block;
+			font-size: 0.8em;
+		}
+	}
+
+	a {
+		text-transform: uppercase;
+		color: $darkgrey;
+
+		&:hover {
+			color: $blue;
+		}
+	}
+
+	> article {
+		display: inline-block;
+	}
+
+	.admin-buttons {
+
+	}
+
+	.edit-mode {
+
+		li {
+			margin-right: 2em;
+		}
+
+		label {
+			max-width: 40%;
+		}
+
+		input {
+			max-width: 60%;
+		}
+	}
+
+	.weight-field {
+		width: 9em;
+	}
+
+	.actions {
+		float: right;
+		font-size: 1.2em;
+	}
+}
