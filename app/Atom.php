@@ -37,15 +37,17 @@ class Atom {
 		return $data->toJson();
 	}
 
-	public function create($data)
+	public function save($data)
 	{
-		foreach($data as $atomData) {
-			$newAtom = $this->atom->create($atomData);
-
-			if(isset($atomData['collection'])) {
-				$collection = $this->atomCollection->get($atomData['collection']);
-				$collection->atoms()->attach($newAtom, ['order' => $atomData['order']]);
-			}
+		if($data['id'] !== "false") {
+			$atom = $this->atom->find($data['id']);
+			$atom->content = $data['content'];
+			$atom->name = $data['name'];
+			$atom->description = $data['description'];
+			$atom->save();
+		}
+		else {
+			$newAtom = $this->atom->create($data);
 		}
 	}
 

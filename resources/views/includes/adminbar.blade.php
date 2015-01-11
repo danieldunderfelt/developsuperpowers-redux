@@ -10,26 +10,16 @@
 		<ul>
 			<li class="id-field">
 				Atom id:&nbsp;
-				<span class="pseudo-input" data-fieldname="id"></span>
+				<span class="pseudo-input" data-fieldname="id" data-default=""></span>
 			</li>
 			<li class="name-field">
 				<label>Atom name:&nbsp;
-					<input type="text" id="atomName" data-fieldname="name" value="">
+					<input type="text" id="atomName" data-fieldname="name" data-default="" value="">
 				</label>
 			</li>
 			<li class="description-field">
 				<label>Atom description:&nbsp;
-					<input type="text" id="atomDescription" data-fieldname="description" value="">
-				</label>
-			</li>
-			<li class="collection-field">
-				<label>Attach to collection:&nbsp;
-					<span id="collectionListPlaceholder"></span>
-				</label>
-			</li>
-			<li class="weight-field">
-				<label>Weight:&nbsp;
-					<input type="number" id="atomCollectionWeight" data-fieldname="order" value="0">
+					<input type="text" id="atomDescription" data-fieldname="description" data-default=""value="">
 				</label>
 			</li>
 		</ul>
@@ -56,7 +46,7 @@
 	<article class="actions on-edit hidden">
 		<ul>
 			<li>
-				<button type="button" class="button blue" id="apply">Submit</button>
+				<button type="button" class="button blue" id="saveCurrent">Save</button>
 			</li>
 			<li>
 				<button type="button" class="button red" id="cancel">Cancel</button>

@@ -12,10 +12,10 @@ export default class {
 		this.form.find('input, textarea, select, .pseudo-input').each( (i, el) => {
 			var $ele = $(el)
 			if(!$ele.is('.pseudo-input')) {
-				data[$ele.data('fieldname')] = $ele.val()
+				data[$ele.data('fieldname')] = $ele.val() === "" ? false : $ele.val()
 			}
 			else {
-				data[$ele.data('fieldname')] = $ele.text()
+				data[$ele.data('fieldname')] = $ele.text() === "" ? false : $ele.text()
 			}
 		})
 
@@ -34,5 +34,18 @@ export default class {
 				}
 			}
 		}
+	}
+
+	reset() {
+		this.form.find('input, textarea, select, .pseudo-input').each( (i, el) => {
+			var $ele = $(el)
+
+			if(!$ele.is('.pseudo-input')) {
+				$ele.val( $ele.data('default') )
+			}
+			else {
+				$ele.text( $ele.data('default') )
+			}
+		})
 	}
 }

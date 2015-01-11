@@ -17,9 +17,9 @@ class ContentAdminController extends Controller {
 	public function saveAtom()
 	{
 		$data = \Input::get('atomData');
-		$this->atom->create($data);
+		$this->atom->save($data);
 
-		return $this->respond([], true);
+		return $this->respond(['data' => $data], true);
 	}
 
 	public function editAtom($id = "new")

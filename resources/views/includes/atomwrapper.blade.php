@@ -1,1 +1,1 @@
-<div class="superpowers-atom" data-atomid="{{ $atom->id }}" data-atomname="{{ $atom->name }}" data-atomdescription="{{ $atom->description }}">{!! $atom->content !!}</div>
+<div class="superpowers-atom" data-atomid="{{ $atom->id }}" data-atomname="{{ $atom->name }}" data-atomdescription="{{ $atom->description }}">{!! html_entity_decode($atom->content) !!}</div>

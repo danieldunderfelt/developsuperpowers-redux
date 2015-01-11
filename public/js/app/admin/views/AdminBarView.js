@@ -1,5 +1,6 @@
 import $ from 'jquery'
 import PseudoForm from '../../lib/PseudoForm'
+import Helpers from '../../lib/Helpers'
 
 export default class {
 
@@ -9,6 +10,7 @@ export default class {
 		this.el = $('#adminBar')
 		this.currentlyVisible = false
 		this.editMode = 'atom'
+		this.saveAction = false
 
 		this.startDefaultListeners()
 		this.registerListeners()
@@ -17,6 +19,7 @@ export default class {
 	startDefaultListeners() {
 		this.el.on('click', '.admin-btn', this.adminBtnHandler.bind(this))
 		this.el.on('click', '#cancel', this.ui.cancelAll.bind(this.ui))
+		this.el.on('click', '#saveCurrent', this.saveBtnAction.bind(this))
 	}
 
 	registerListeners() {
@@ -27,6 +30,34 @@ export default class {
 		this.observer.subscribe({
 			'editEnabled': false
 		}, this.onDisableEdit, this, 'disableAdminBarEdit')
+
+		this.observer.subscribe({
+			'editMode': 'edit'
+		}, this.setEditData, this, 'setAdminBarEditData')
+
+		this.observer.subscribe({
+			'editMode': 'new'
+		}, this.cleanEditData, this, 'cleanAdminBarEditData')
+	}
+
+	addAdminButton(btnData) {
+		var btnClasses = btnData.class.join(' ')
+		var $btn = $(`<li class="dynamic-btn ${btnData.name}"><button type="button" class="button ${btnClasses}" id="${btnData.id}" data-${btnData.dataKey}="${btnData.dataValue}">${btnData.label}</button></li>`)
+		this.el.find('.actions ul').prepend($btn)
+
+		$btn.on('click', btnData.clickHandler.bind(btnData.handlerContext))
+	}
+
+	removeAdminButton(name) {
+		this.el.find('.actions').find(`.dynamic-btn.${name}`).remove()
+	}
+
+	showAdminButton(name) {
+		this.el.find('.actions').find(`.dynamic-btn.${name}`).find('button').removeClass('hidden')
+	}
+
+	hideAdminButton(name) {
+		this.el.find('.actions').find(`.dynamic-btn.${name}`).find('button').addClass('hidden')
 	}
 
 	adminBtnHandler(e) {
@@ -43,6 +74,15 @@ export default class {
 		this.ui.setAdminAction(actionData)
 	}
 
+	saveBtnAction(e) {
+		e.preventDefault()
+
+		if(this.saveAction !== false) {
+			this.saveAction(this.getData())
+			this.ui.editingDone()
+		}
+	}
+
 	onEnableEdit() {
 		this.editMode = this.ui.admin.state.editEntity
 
@@ -57,6 +97,24 @@ export default class {
 		this.el.find('.on-standby').removeClass("hidden")
 	}
 
+	setSaveAction(callback) {
+		this.saveAction = callback
+	}
+
+	setEditData() {
+		var data = this.ui.admin.getEditObjectData()
+
+		if(data !== null) {
+			this.setData(data)
+		}
+	}
+
+	cleanEditData() {
+		var form = new PseudoForm(`#${this.editMode}EditControls`)
+		form.reset()
+		this.removeModal()
+	}
+
 	getData() {
 		var form = new PseudoForm(`#${this.editMode}EditControls`)
 		return form.get()
@@ -65,47 +123,5 @@ export default class {
 	setData(data) {
 		var form = new PseudoForm(`#${this.editMode}EditControls`)
 		form.set(data)
-	}
-
-	setCollectionList(list) {
-		var placeholder = $('#collectionListPlaceholder') || $('#collectionListSelect')
-		var select = $('<select id="collectionListSelect" data-fieldname="collectionId"></select>')
-		var collectionsList = JSON.parse(list.collections)
-
-		collectionsList.forEach( (collection) => {
-			var $item = $(`<option value="${ collection.id }">${ collection.name }</option>`)
-			select.append($item)
-		})
-
-		var $noneOption = $("<option value='false'>NONE</option>")
-		select.prepend($noneOption)
-
-		placeholder.replaceWith(select)
-	}
-
-	newAtomEdit(e) {
-		e.preventDefault()
-		var url = $(e.currentTarget).attr('href')
-
-		var atomData = [
-			{
-				'collection': {
-					'name': 'testcollection1'
-				},
-				'order': 1,
-				'name': 'testatom' + Date.now(),
-				'content': "<p>I'm a test atom! Time: " + Date.now() + "</p>"
-			},
-			{
-				'collection': {
-					'name': 'testcollection1'
-				},
-				'order': 2,
-				'name': 'secondtestatom' + Date.now(),
-				'content': "<p><strong>I'm the second test atom!</strong> Time: " + Date.now() + "</p>"
-			}
-		]
-
-		var req = $.post(url, {'atomData' : atomData})
 	}
 }

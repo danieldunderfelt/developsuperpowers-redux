@@ -9,7 +9,7 @@ export default class {
 			editEnabled: false,
 			editMode: false, // new or edit
 			editEntity: null, // atom or collection
-			currentApi: null // api endpoit to post data to
+			currentApi: null // api endpoint to post data to
 		}
 
 		this.editObject = null // if mode is edit, this stores the initial atom data
@@ -44,6 +44,21 @@ export default class {
 		this.currentEditor = null
 	}
 
+	saveData(data) {
+		var req = $.post(this.state.currentApi, {atomData: data})
+
+		req.success(this.saveSuccess.bind(this))
+		req.fail(this.saveFail.bind(this))
+	}
+
+	saveSuccess(response) {
+		console.log(response)
+	}
+
+	saveFail(response) {
+		console.error(response)
+	}
+
 
 	/*
 	 *	State getters and setters
@@ -67,6 +82,10 @@ export default class {
 
 	setEditObjectData(data) {
 		this.editObject = data
+	}
+
+	getEditObjectData(data) {
+		return this.editObject
 	}
 
 	setEditMode(mode) {

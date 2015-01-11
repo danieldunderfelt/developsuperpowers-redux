@@ -48,6 +48,11 @@ export default class {
 
 	attachControls(controls) {
 		this.editorControls = controls
+		this.views.bar.setSaveAction(this.editorControls.saveAtom)
+	}
+
+	getEditorData() {
+		return this.views.atomEditor.getData()
 	}
 
 	makeAdminAction(mode, type) {
@@ -67,11 +72,17 @@ export default class {
 		}
 	}
 
+	editingDone() {
+		this.admin.disableEdit()
+	}
+
 	resetUI() {
-		if(this.admin.disableEdit() === false) {
+		if(!this.admin.disableEdit()) {
 			this.admin.setEditMode(false)
 			this.admin.setEntity(null)
 			this.admin.setApi(null)
+			this.admin.setEditObjectData({})
+			this.admin.currentEditor = null
 		}
 	}
 

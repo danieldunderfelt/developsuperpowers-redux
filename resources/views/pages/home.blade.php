@@ -3,6 +3,7 @@
 	<article class="page home-page">
 		<header>
 			{!! Atom::display(1) !!}
+			{!! Atom::display(15) !!}
 			<h1>
 				Hello!
 			</h1>
