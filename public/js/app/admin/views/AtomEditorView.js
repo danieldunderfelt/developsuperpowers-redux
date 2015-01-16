@@ -1,3 +1,4 @@
+import AdminStateObserver from '../AdminStateObserver'
 import Modal from './AtomEditorModal'
 
 export default class {
@@ -56,7 +57,7 @@ export default class {
 			onShow: this.onModalShow.bind(this)
 		})
 
-		this.ui.observer.subscribe({
+		AdminStateObserver.subscribe({
 			'editEnabled': false
 		}, this.editorModal.remove, this.editorModal, 'modalRemove')
 
@@ -75,7 +76,7 @@ export default class {
 	}
 
 	onModalRemove() {
-		this.ui.observer.unsubscribe('editEnabled', 'modalRemove')
+		AdminStateObserver.unsubscribe('editEnabled', 'modalRemove')
 		this.ui.views.bar.removeAdminButton('reshow-modal-btn')
 	}
 

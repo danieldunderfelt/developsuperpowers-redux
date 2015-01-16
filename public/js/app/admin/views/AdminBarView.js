@@ -1,12 +1,14 @@
 import $ from 'jquery'
+import Bus from '../../lib/Bus'
+import AdminStateUpdateCommand from '../commands/AdminStateUpdateCommand'
+import AdminStateObserver from '../AdminStateObserver'
 import PseudoForm from '../../lib/PseudoForm'
 import Helpers from '../../lib/Helpers'
 
 export default class {
 
-	constructor(UI, observer) {
+	constructor(UI) {
 		this.ui = UI
-		this.observer = observer
 		this.el = $('#adminBar')
 		this.currentlyVisible = false
 		this.editMode = 'atom'
@@ -23,19 +25,19 @@ export default class {
 	}
 
 	registerListeners() {
-		this.observer.subscribe({
+		AdminStateObserver.subscribe({
 			'editEnabled': true
 		}, this.onEnableEdit, this, 'enableAdminBarEdit')
 
-		this.observer.subscribe({
+		AdminStateObserver.subscribe({
 			'editEnabled': false
 		}, this.onDisableEdit, this, 'disableAdminBarEdit')
 
-		this.observer.subscribe({
+		AdminStateObserver.subscribe({
 			'editMode': 'edit'
 		}, this.setEditData, this, 'setAdminBarEditData')
 
-		this.observer.subscribe({
+		AdminStateObserver.subscribe({
 			'editMode': 'new'
 		}, this.cleanEditData, this, 'cleanAdminBarEditData')
 	}
@@ -65,13 +67,13 @@ export default class {
 		var element = $(e.currentTarget)
 		var action = element.data('action').split('.')
 
-		var actionData = {
-			mode: action[0], // new or edit
-			entity: action[1], // atom or collection
-			api: element.attr('href') // endpoint provided by button href
-		}
+		var command = new AdminStateUpdateCommand(
+			action[0],
+			action[1],
+			element.attr('href')
+		)
 
-		this.ui.setAdminAction(actionData)
+		Bus.execute(command)
 	}
 
 	saveBtnAction(e) {

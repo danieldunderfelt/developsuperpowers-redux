@@ -1,12 +1,5 @@
 export default class {
 
-	constructor(object) {
-		this.subscribers = {}
-		this.object = object
-
-		Object.observe(object, this.notifySubscribers.bind(this))
-	}
-
 	subscribe(keys, callback, context, bindingName) {
 		for(let key in keys) {
 			let val = keys[key]
@@ -50,6 +43,4 @@ export default class {
 			}
 		})
 	}
-
-
 }

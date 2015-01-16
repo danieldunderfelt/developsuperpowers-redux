@@ -1,21 +1,23 @@
 import $ from 'jquery'
+import AdminStateObserver from './AdminStateObserver'
+import Bus from '../lib/Bus'
+import StateUpdateCommand from './commands/AdminStateUpdateCommand'
 import AdminBarView from './views/AdminBarView'
 import AtomEditorView from './views/AtomEditorView'
 
 export default class {
 
-	constructor(admin, stateObserver) {
+	constructor(admin) {
 		this.admin = admin
-		this.observer = stateObserver
 		this.editorControls = {}
 
 		this.views = {
-			bar: new AdminBarView(this, stateObserver)
+			bar: new AdminBarView(this)
 		}
 	}
 
 	initialize() {
-		this.observer.subscribe({
+		AdminStateObserver.subscribe({
 			'editEnabled': false
 		}, this.resetUI, this, 'resetAdminUI')
 
@@ -26,11 +28,11 @@ export default class {
 		e.preventDefault()
 		var atomEle = $(e.currentTarget)
 
-		var action = this.makeAdminAction('edit', 'atom')
+		var action = new StateUpdateCommand('edit', 'atom')
 		var editObject = this.makeEditObject(atomEle)
 
 		this.admin.setEditObjectData(editObject)
-		this.setAdminAction(action)
+		Bus.execute(action)
 	}
 
 	setAdminAction(action) {
@@ -53,14 +55,6 @@ export default class {
 
 	getEditorData() {
 		return this.views.atomEditor.getData()
-	}
-
-	makeAdminAction(mode, type) {
-		return {
-			mode: mode,
-			entity: type,
-			api: api[type].save
-		}
 	}
 
 	makeEditObject(el) {

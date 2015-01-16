@@ -1,10 +1,12 @@
 import AdminUI from './AdminUI'
-import Observer from '../lib/ObjectSubscribe'
+import Bus from '../lib/Bus'
+import AdminStateObserver from './AdminStateObserver'
 import AtomEditor from './editors/AtomEditor'
 
-export default class {
+class Admin {
 
 	constructor() {
+		// Value properties
 		this.state = {
 			editEnabled: false,
 			editMode: false, // new or edit
@@ -14,10 +16,24 @@ export default class {
 
 		this.editObject = null // if mode is edit, this stores the initial atom data
 
-		this.observer = new Observer(this.state) // State observer
-		this.ui = new AdminUI(this, this.observer) // Global admin UI functionality
-
+		// Object references
 		this.currentEditor = null // The current editor instance
+		this.observer = {}
+		this.ui = {}
+
+		// Set those up
+		this.bootstrap()
+	}
+
+	bootstrap() {
+		// Observer is singleton, other classes depend on it being setup, so do that first
+		this.observer = AdminStateObserver.setObservable(this.state) // State observer
+
+		// Setup the admin command bus
+		Bus.setController(this)
+
+		// Main admin UI tie-together class (purpose is getting jquery stuff outta this class)
+		this.ui = new AdminUI(this) // Global admin UI functionality
 	}
 
 	initialize() {
@@ -113,3 +129,5 @@ export default class {
 	}
 
 }
+
+export default new Admin()

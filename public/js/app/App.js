@@ -17,8 +17,7 @@ export default class {
 	initAdmin() {
 		var adminLoad = new Promise(Auth.getAuthStatus)
 		adminLoad.then(() => {
-			this.admin = new Admin()
-			this.admin.initialize()
+			Admin.initialize()
 		})
 	}
 }
