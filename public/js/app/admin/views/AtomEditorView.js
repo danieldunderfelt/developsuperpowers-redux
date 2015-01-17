@@ -1,10 +1,11 @@
 import AdminStateObserver from '../AdminStateObserver'
 import Modal from './AtomEditorModal'
+import AdminBarView from './AdminBarView'
+import AdminUI from '../AdminUI'
 
 export default class {
 
-	constructor(adminUI, editorHtml, mode) {
-		this.ui = adminUI
+	constructor(editorHtml, mode) {
 		this.editorHtml = editorHtml
 		this.mode = mode // Inline or modal
 		this.editorModal = {}
@@ -61,7 +62,7 @@ export default class {
 			'editEnabled': false
 		}, this.editorModal.remove, this.editorModal, 'modalRemove')
 
-		this.ui.views.bar.addAdminButton({
+		AdminBarView.addAdminButton({
 			name: 'reshow-modal-btn',
 			class: ['reshow-modal', 'hidden'],
 			id: 'reshowModal',
@@ -77,14 +78,14 @@ export default class {
 
 	onModalRemove() {
 		AdminStateObserver.unsubscribe('editEnabled', 'modalRemove')
-		this.ui.views.bar.removeAdminButton('reshow-modal-btn')
+		AdminBarView.removeAdminButton('reshow-modal-btn')
 	}
 
 	onModalHide() {
-		this.ui.views.bar.showAdminButton('reshow-modal-btn')
+		AdminBarView.showAdminButton('reshow-modal-btn')
 	}
 
 	onModalShow() {
-		this.ui.views.bar.hideAdminButton('reshow-modal-btn')
+		AdminBarView.hideAdminButton('reshow-modal-btn')
 	}
 }

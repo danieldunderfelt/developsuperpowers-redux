@@ -1,23 +1,14 @@
 class Bus {
 
-	constructor() {
-		this.controller = {}
-	}
-
-	setController(controller) {
-		this.controller = controller
-	}
-
 	execute(command) {
-		System.import('js/app/admin/handlers/'+ command.handler +'Handler')
+		System.import('js/app/handlers/' + command.handler +'Handler')
 		.then(imported => {
-			var handlerInstance = new imported.default(this.controller)
+			var handlerInstance = new imported.default()
 			handlerInstance.handle(command)
 		})
-	}
-
-	registerHandler(name, handler) {
-		this.handlers[name] = handler
+		.catch(error => {
+			console.error(error)
+		})
 	}
 }
 

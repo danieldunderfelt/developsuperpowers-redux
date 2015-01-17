@@ -13,13 +13,12 @@ class Admin {
 			editEntity: null, // atom or collection
 			currentApi: null // api endpoint to post data to
 		}
-
+		this.handlersPath = 'js/app/admin/handlers/'
 		this.editObject = null // if mode is edit, this stores the initial atom data
 
 		// Object references
 		this.currentEditor = null // The current editor instance
 		this.observer = {}
-		this.ui = {}
 
 		// Set those up
 		this.bootstrap()
@@ -28,16 +27,10 @@ class Admin {
 	bootstrap() {
 		// Observer is singleton, other classes depend on it being setup, so do that first
 		this.observer = AdminStateObserver.setObservable(this.state) // State observer
-
-		// Setup the admin command bus
-		Bus.setController(this)
-
-		// Main admin UI tie-together class (purpose is getting jquery stuff outta this class)
-		this.ui = new AdminUI(this) // Global admin UI functionality
 	}
 
 	initialize() {
-		this.ui.initialize()
+		AdminUI.initialize()
 
 		this.observer.subscribe({
 			'editEnabled': true
@@ -50,7 +43,7 @@ class Admin {
 
 	initializeEditor() {
 		if(this.state.editEntity === 'atom') {
-			this.currentEditor = new AtomEditor(this, this.ui, this.state.editMode)
+			this.currentEditor = new AtomEditor(this.state.editMode)
 		}
 
 		this.currentEditor.initialize()
@@ -121,7 +114,9 @@ class Admin {
 	}
 
 	setApi(apiUrl) {
-		this.state.currentApi = apiUrl
+		if(apiUrl !== null && typeof apiUrl !== 'undefined') {
+			this.state.currentApi = apiUrl
+		}
 	}
 
 	getApi() {

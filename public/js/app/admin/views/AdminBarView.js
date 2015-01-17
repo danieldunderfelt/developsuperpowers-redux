@@ -1,14 +1,15 @@
 import $ from 'jquery'
 import Bus from '../../lib/Bus'
-import AdminStateUpdateCommand from '../commands/AdminStateUpdateCommand'
+import AdminStateUpdateCommand from '../../commands/AdminStateUpdateCommand'
 import AdminStateObserver from '../AdminStateObserver'
 import PseudoForm from '../../lib/PseudoForm'
 import Helpers from '../../lib/Helpers'
+import Admin from '../Admin'
+import AdminUI from '../AdminUI'
 
-export default class {
+class AdminBarView {
 
-	constructor(UI) {
-		this.ui = UI
+	constructor() {
 		this.el = $('#adminBar')
 		this.currentlyVisible = false
 		this.editMode = 'atom'
@@ -20,7 +21,7 @@ export default class {
 
 	startDefaultListeners() {
 		this.el.on('click', '.admin-btn', this.adminBtnHandler.bind(this))
-		this.el.on('click', '#cancel', this.ui.cancelAll.bind(this.ui))
+		this.el.on('click', '#cancel', this.cancelAction.bind(this))
 		this.el.on('click', '#saveCurrent', this.saveBtnAction.bind(this))
 	}
 
@@ -76,17 +77,21 @@ export default class {
 		Bus.execute(command)
 	}
 
+	cancelAction() {
+		AdminUI.cancelAll()
+	}
+
 	saveBtnAction(e) {
 		e.preventDefault()
 
 		if(this.saveAction !== false) {
 			this.saveAction(this.getData())
-			this.ui.editingDone()
+			AdminUI.editingDone()
 		}
 	}
 
 	onEnableEdit() {
-		this.editMode = this.ui.admin.state.editEntity
+		this.editMode = Admin.state.editEntity
 
 		this.el.find('.on-edit').removeClass("hidden")
 		this.el.find('#' + this.editMode + 'EditControls').removeClass("hidden")
@@ -104,7 +109,7 @@ export default class {
 	}
 
 	setEditData() {
-		var data = this.ui.admin.getEditObjectData()
+		var data = Admin.getEditObjectData()
 
 		if(data !== null) {
 			this.setData(data)
@@ -127,3 +132,5 @@ export default class {
 		form.set(data)
 	}
 }
+
+export default new AdminBarView()

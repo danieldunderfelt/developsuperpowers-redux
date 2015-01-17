@@ -1,19 +1,17 @@
 import $ from 'jquery'
 import AdminStateObserver from './AdminStateObserver'
 import Bus from '../lib/Bus'
-import StateUpdateCommand from './commands/AdminStateUpdateCommand'
+import StateUpdateCommand from '../commands/AdminStateUpdateCommand'
+import EditObjectCommand from '../commands/EditObjectCommand'
 import AdminBarView from './views/AdminBarView'
 import AtomEditorView from './views/AtomEditorView'
+import Admin from './Admin'
 
-export default class {
+class AdminUI {
 
-	constructor(admin) {
-		this.admin = admin
+	constructor() {
 		this.editorControls = {}
-
-		this.views = {
-			bar: new AdminBarView(this)
-		}
+		this.views = {}
 	}
 
 	initialize() {
@@ -29,54 +27,43 @@ export default class {
 		var atomEle = $(e.currentTarget)
 
 		var action = new StateUpdateCommand('edit', 'atom')
-		var editObject = this.makeEditObject(atomEle)
 
-		this.admin.setEditObjectData(editObject)
-		Bus.execute(action)
-	}
+		var editObject = new EditObjectCommand(
+			atomEle.data('atomid'),
+			atomEle.data('atomname'),
+			atomEle.data('atomdescription'),
+			atomEle.html()
+		)
 
-	setAdminAction(action) {
-		if(this.admin.enableEdit()) {
-			this.admin.setEditMode(action.mode)
-			this.admin.setEntity(action.entity)
-			this.admin.setApi(action.api)
-		}
+		Bus.execute(editObject)
+		Bus.execute(action) // This activates editing, so setup the data the edit classes need beforehand
 	}
 
 	showAtomEditor(data) {
-		this.views.atomEditor = new AtomEditorView(this, data, 'modal')
+		this.views.atomEditor = new AtomEditorView(data, 'modal')
 		this.views.atomEditor.initialize()
 	}
 
 	attachControls(controls) {
 		this.editorControls = controls
-		this.views.bar.setSaveAction(this.editorControls.saveAtom)
+		AdminBarView.setSaveAction(this.editorControls.saveAtom)
 	}
 
 	getEditorData() {
 		return this.views.atomEditor.getData()
 	}
 
-	makeEditObject(el) {
-		return {
-			id: el.data('atomid'),
-			name: el.data('atomname'),
-			description: el.data('atomdescription'),
-			content: el.html()
-		}
-	}
-
 	editingDone() {
-		this.admin.disableEdit()
+		Admin.disableEdit()
 	}
 
 	resetUI() {
-		if(!this.admin.disableEdit()) {
-			this.admin.setEditMode(false)
-			this.admin.setEntity(null)
-			this.admin.setApi(null)
-			this.admin.setEditObjectData({})
-			this.admin.currentEditor = null
+		if(!Admin.disableEdit()) {
+			Admin.setEditMode(false)
+			Admin.setEntity(null)
+			Admin.setApi(null)
+			Admin.setEditObjectData({})
+			Admin.currentEditor = null
 		}
 	}
 
@@ -85,6 +72,8 @@ export default class {
 			e.preventDefault()
 		}
 
-		this.admin.disableEdit()
+		Admin.disableEdit()
 	}
 }
+
+export default new AdminUI()

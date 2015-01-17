@@ -1,10 +1,10 @@
 import $ from 'jquery'
+import Admin from '../Admin'
+import AdminUI from '../AdminUI'
 
 export default class {
 
-	constructor(admin, UI, mode) {
-		this.admin = admin
-		this.ui = UI
+	constructor(mode) {
 		this.mode = mode // new or edit; new triggers modal, edit is inline
 
 		this.controls = {
@@ -21,8 +21,8 @@ export default class {
 	}
 
 	setupNewAtomEditor(data) {
-		this.ui.showAtomEditor(data.html)
-		this.ui.attachControls(this.controls)
+		AdminUI.showAtomEditor(data.html)
+		AdminUI.attachControls(this.controls)
 	}
 
 	getCollectionList(resolve, reject) {
@@ -40,7 +40,7 @@ export default class {
 	}
 
 	collectAtomData(data) {
-		data.content = this.ui.getEditorData()
-		this.admin.saveData(data)
+		data.content = AdminUI.getEditorData()
+		Admin.saveData(data)
 	}
 }
