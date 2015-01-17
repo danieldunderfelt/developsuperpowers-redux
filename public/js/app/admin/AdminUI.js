@@ -11,7 +11,7 @@ class AdminUI {
 
 	constructor() {
 		this.editorControls = {}
-		this.views = {}
+		this.atomEditor = {}
 	}
 
 	initialize() {
@@ -40,8 +40,8 @@ class AdminUI {
 	}
 
 	showAtomEditor(data) {
-		this.views.atomEditor = new AtomEditorView(data, 'modal')
-		this.views.atomEditor.initialize()
+		this.atomEditor = new AtomEditorView(data, 'modal')
+		this.atomEditor.initialize()
 	}
 
 	attachControls(controls) {

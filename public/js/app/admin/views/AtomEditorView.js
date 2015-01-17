@@ -2,6 +2,9 @@ import AdminStateObserver from '../AdminStateObserver'
 import Modal from './AtomEditorModal'
 import AdminBarView from './AdminBarView'
 import AdminUI from '../AdminUI'
+import Bus from '../../lib/Bus'
+import MakeAdminBtnCommand from '../../commands/MakeAdminBtnCommand'
+import * as buttons from '../components/buttons'
 
 export default class {
 
@@ -62,17 +65,9 @@ export default class {
 			'editEnabled': false
 		}, this.editorModal.remove, this.editorModal, 'modalRemove')
 
-		AdminBarView.addAdminButton({
-			name: 'reshow-modal-btn',
-			class: ['reshow-modal', 'hidden'],
-			id: 'reshowModal',
-			dataKey: '',
-			dataValue: '',
-			label: 'Show modal',
-			clickHandler: this.editorModal.show,
-			handlerContext: this.editorModal
-		})
+		var modalBtnCommand = new MakeAdminBtnCommand(buttons.barModalBtn(this.editorModal.show, this.editorModal))
 
+		Bus.execute(modalBtnCommand)
 		this.editorModal.show()
 	}
 
