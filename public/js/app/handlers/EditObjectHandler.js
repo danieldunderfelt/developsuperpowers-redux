@@ -8,7 +8,8 @@ export default class {
 			id: command.id,
 			name: command.name,
 			description: command.description,
-			content: command.content
+			content: command.content,
+			element: command.element
 		}
 
 		Admin.setEditObjectData(editObject)

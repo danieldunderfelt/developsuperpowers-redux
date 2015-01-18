@@ -4,7 +4,6 @@ import Bus from '../lib/Bus'
 import StateUpdateCommand from '../commands/AdminStateUpdateCommand'
 import EditObjectCommand from '../commands/EditObjectCommand'
 import AdminBarView from './views/AdminBarView'
-import AtomEditorView from './views/AtomEditorView'
 import Admin from './Admin'
 
 class AdminUI {
@@ -24,24 +23,21 @@ class AdminUI {
 
 	startAtomInlineEdit(e) {
 		e.preventDefault()
+
 		var atomEle = $(e.currentTarget)
 
-		var action = new StateUpdateCommand('edit', 'atom')
+		var action = new StateUpdateCommand('edit', 'atom', api.atom.save)
 
 		var editObject = new EditObjectCommand(
 			atomEle.data('atomid'),
 			atomEle.data('atomname'),
 			atomEle.data('atomdescription'),
-			atomEle.html()
+			atomEle.html(),
+			atomEle
 		)
 
 		Bus.execute(editObject)
 		Bus.execute(action) // This activates editing, so setup the data the edit classes need beforehand
-	}
-
-	showAtomEditor(data) {
-		this.atomEditor = new AtomEditorView(data, 'modal')
-		this.atomEditor.initialize()
 	}
 
 	attachControls(controls) {
@@ -49,16 +45,12 @@ class AdminUI {
 		AdminBarView.setSaveAction(this.editorControls.saveAtom)
 	}
 
-	getEditorData() {
-		return this.views.atomEditor.getData()
-	}
-
 	editingDone() {
 		Admin.disableEdit()
 	}
 
 	resetUI() {
-		if(!Admin.disableEdit()) {
+		if(!Admin.disableEdit()) { // If this is false, editing is disabled and we can proceed
 			Admin.setEditMode(false)
 			Admin.setEntity(null)
 			Admin.setApi(null)
@@ -76,4 +68,4 @@ class AdminUI {
 	}
 }
 
-export default new AdminUI()
+export default new AdminUI() // This is a singleton

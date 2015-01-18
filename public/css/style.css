@@ -671,3 +671,7 @@ html {
       padding: 1em;
       border: 1px solid rgba(127, 127, 127, 0.4);
       outline: none; }
+
+.edit-active {
+  font-family: 'Monaco', monospace;
+  font-size: 1rem; }

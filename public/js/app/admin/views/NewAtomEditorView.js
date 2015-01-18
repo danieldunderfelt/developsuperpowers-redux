@@ -8,54 +8,21 @@ import * as buttons from '../components/buttons'
 
 export default class {
 
-	constructor(editorHtml, mode) {
-		this.editorHtml = editorHtml
-		this.mode = mode // Inline or modal
+	constructor() {
 		this.editorModal = {}
-		this.inlineEditor = {}
 	}
 
-	initialize() {
-		if(this.mode === 'modal') {
-			this.setupEditorModal()
-		}
-
-		if(this.mode === 'inline') {
-			this.setupInlineEditing()
-		}
+	initialize(editorData) {
+		this.setupEditorModal(editorData)
 	}
 
-	setMode(mode) {
-		if(this.mode !== mode) {
-			this.mode = mode
-			this.initialize()
-		}
-	}
-
-	getData() {
-		var contentData;
-
-		if(this.mode === 'modal') {
-			contentData = this.editorModal.getData()
-		}
-		else {
-			contentData = this.inlineEditor.getData()
-		}
-
+	getEditorData() {
+		var contentData = this.editorModal.getData()
 		return contentData
 	}
 
-	/* Inline edit stuff */
-
-	setupInlineEditing() {
-
-	}
-
-
-	/* Modal stuff */
-
-	setupEditorModal() {
-		this.editorModal = new Modal(this.editorHtml, "editor", {
+	setupEditorModal(data) {
+		this.editorModal = new Modal(data.html, "editor", {
 			onRemove: this.onModalRemove.bind(this),
 			onHide: this.onModalHide.bind(this),
 			onShow: this.onModalShow.bind(this)
@@ -65,7 +32,9 @@ export default class {
 			'editEnabled': false
 		}, this.editorModal.remove, this.editorModal, 'modalRemove')
 
-		var modalBtnCommand = new MakeAdminBtnCommand(buttons.barModalBtn(this.editorModal.show, this.editorModal))
+		var modalBtnCommand = new MakeAdminBtnCommand(
+			buttons.barModalBtn(this.editorModal.show, this.editorModal)
+		)
 
 		Bus.execute(modalBtnCommand)
 		this.editorModal.show()

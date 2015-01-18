@@ -6,5 +6,6 @@ export default class {
 		this.name = props[1]
 		this.description = props[2]
 		this.content = props[3]
+		this.element = props[4]
 	}
 }

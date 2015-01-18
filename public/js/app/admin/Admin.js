@@ -13,6 +13,7 @@ class Admin {
 			editEntity: null, // atom or collection
 			currentApi: null // api endpoint to post data to
 		}
+
 		this.handlersPath = 'js/app/admin/handlers/'
 		this.editObject = null // if mode is edit, this stores the initial atom data
 
@@ -54,6 +55,7 @@ class Admin {
 	}
 
 	saveData(data) {
+		console.log(data)
 		var req = $.post(this.state.currentApi, {atomData: data})
 
 		req.success(this.saveSuccess.bind(this))

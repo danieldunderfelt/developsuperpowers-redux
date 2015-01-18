@@ -1,11 +1,14 @@
 import $ from 'jquery'
 import Admin from '../Admin'
 import AdminUI from '../AdminUI'
+import NewAtomEditorView from '../views/NewAtomEditorView'
+import InlineAtomEditorView from '../views/InlineAtomEditorView'
 
 export default class {
 
 	constructor(mode) {
 		this.mode = mode // new or edit; new triggers modal, edit is inline
+		this.editorView = {}
 
 		this.controls = {
 			saveAtom: this.collectAtomData.bind(this)
@@ -13,23 +16,27 @@ export default class {
 	}
 
 	initialize() {
-
 		if(this.mode === 'new') {
 			var editorPromise = new Promise(this.getAtomEditor.bind(this))
 			editorPromise.then(this.setupNewAtomEditor.bind(this))
 		}
+		else if(this.mode === 'edit') {
+			this.setupInlineAtomEditor()
+		}
 	}
 
 	setupNewAtomEditor(data) {
-		AdminUI.showAtomEditor(data.html)
+		this.editorView = new NewAtomEditorView()
+		this.editorView.initialize(data)
+
 		AdminUI.attachControls(this.controls)
 	}
 
-	getCollectionList(resolve, reject) {
-		var req = $.post(api.collection.list)
+	setupInlineAtomEditor() {
+		this.editorView = new InlineAtomEditorView()
+		this.editorView.initialize(Admin.getEditObjectData())
 
-		req.success(resolve)
-		req.fail(reject)
+		AdminUI.attachControls(this.controls)
 	}
 
 	getAtomEditor(resolve, reject) {
@@ -40,7 +47,7 @@ export default class {
 	}
 
 	collectAtomData(data) {
-		data.content = AdminUI.getEditorData()
+		data.content = this.editorView.getEditorData()
 		Admin.saveData(data)
 	}
 }
