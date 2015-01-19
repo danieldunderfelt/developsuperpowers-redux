@@ -91,7 +91,7 @@ class AdminBarView {
 	}
 
 	onEnableEdit() {
-		this.editMode = Admin.state.editEntity
+		this.editMode = Admin.getEntity()
 
 		this.el.find('.on-edit').removeClass("hidden")
 		this.el.find('#' + this.editMode + 'EditControls').removeClass("hidden")

@@ -11,6 +11,11 @@ class AtomCollection {
 		$this->atomCollection = $atomCollection;
 	}
 
+	public function save($data)
+	{
+		$this->atomCollection->create($data);
+	}
+
 	public function getObject($collectionData)
 	{
 		$collection = $this->atomCollection->firstOrCreate($collectionData);

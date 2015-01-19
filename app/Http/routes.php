@@ -21,6 +21,8 @@ Route::get('/', ['as' => 'home', 'uses' => 'ContentController@home']);
 Route::post('/edit/atom/{id?}', ['as' => 'admin.edit.atom', 'uses' => 'ContentAdminController@editAtom']);
 // Post atom data for saving, new or existing
 Route::post('/save/atom', ['as' => 'admin.save.atom', 'uses' => 'ContentAdminController@saveAtom']);
+// Post collection for saving new collection
+Route::post('/new/collection', ['as' => 'admin.new.collection', 'uses' => 'ContentAdminController@newCollection']);
 // List all atoms
 Route::post('/list/atoms', ['as' => 'admin.list.atoms', 'uses' => 'ContentAdminController@listAtoms']);
 // List all collections (pages, blogposts, whatever)

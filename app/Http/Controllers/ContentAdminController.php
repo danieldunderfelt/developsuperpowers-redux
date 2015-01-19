@@ -40,6 +40,14 @@ class ContentAdminController extends Controller {
 		], true);
 	}
 
+	public function newCollection(NewCollectionRequest $request) {
+		$data = $request->get('collectionData');
+		dd($data);
+		$this->collection->save($data);
+
+		return $this->respond(['data' => $data], true);
+	}
+
 	public function listCollections()
 	{
 		$data = $this->collection->listCollections();

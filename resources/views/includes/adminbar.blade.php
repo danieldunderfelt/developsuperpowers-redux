@@ -4,6 +4,9 @@
 			<li class="editbtn-atom">
 				<a href="{{ route('admin.save.atom') }}" class="admin-btn" data-action="new.atom">New Atom</a>
 			</li>
+			<li class="editbtn-collection">
+				<a href="{{ route('admin.new.collection') }}" class="admin-btn" data-action="new.collection">New Collection</a>
+			</li>
 		</ul>
 	</article>
 	<article class="edit-mode atom hidden" id="atomEditControls">
