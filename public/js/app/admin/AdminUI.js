@@ -9,7 +9,7 @@ import Admin from './Admin'
 class AdminUI {
 
 	constructor() {
-		this.editorControls = {}
+		this.saveAction = {}
 		this.atomEditor = {}
 	}
 
@@ -38,11 +38,6 @@ class AdminUI {
 
 		Bus.execute(editObject)
 		Bus.execute(action) // This activates editing, so setup the data the edit classes need beforehand
-	}
-
-	attachControls(controls) {
-		this.editorControls = controls
-		AdminBarView.setSaveAction(this.editorControls.saveAtom)
 	}
 
 	editingDone() {

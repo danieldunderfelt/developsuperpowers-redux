@@ -2,6 +2,7 @@ import AdminUI from './AdminUI'
 import Bus from '../lib/Bus'
 import AdminStateObserver from './AdminStateObserver'
 import AtomEditor from './editors/AtomEditor'
+import CollectionEditor from './editors/CollectionEditor'
 
 class Admin {
 
@@ -45,6 +46,9 @@ class Admin {
 	initializeEditor() {
 		if(this.state.editEntity === 'atom') {
 			this.currentEditor = new AtomEditor(this.state.editMode)
+		}
+		if(this.state.editEntity === 'collection') {
+			this.currentEditor = new CollectionEditor()
 		}
 
 		this.currentEditor.initialize()

@@ -1,5 +1,6 @@
 <?php namespace Superpowers\Http\Controllers;
 
+use \Superpowers\Http\Requests\NewCollectionRequest;
 use \Superpowers\AtomCollection as Collection;
 use \Superpowers\Atom;
 
@@ -42,7 +43,6 @@ class ContentAdminController extends Controller {
 
 	public function newCollection(NewCollectionRequest $request) {
 		$data = $request->get('collectionData');
-		dd($data);
 		$this->collection->save($data);
 
 		return $this->respond(['data' => $data], true);

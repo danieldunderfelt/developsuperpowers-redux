@@ -31,17 +31,17 @@
 		<ul>
 			<li class="name-field">
 				<label>Collection name:&nbsp;
-					<input type="text" id="collectionName" value="">
+					<input type="text" data-fieldname="name" id="collectionName" value="">
 				</label>
 			</li>
 			<li class="tags-field">
 				<label>Collections tags:&nbsp;
-					<input type="text" id="collectionTags" value="">
+					<input type="text" data-fieldname="tags" id="collectionTags" value="">
 				</label>
 			</li>
 			<li class="attrs-field">
 				<label>Collection attributes:&nbsp;
-					<input type="text" id="collectionAttrs" value="">
+					<input type="text" data-fieldname="attributes" id="collectionAttrs" value="">
 				</label>
 			</li>
 		</ul>
