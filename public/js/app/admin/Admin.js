@@ -59,8 +59,7 @@ class Admin {
 	}
 
 	saveData(data) {
-		console.log(data)
-		var req = $.post(this.state.currentApi, {atomData: data})
+		var req = $.post(this.state.currentApi, data)
 
 		req.success(this.saveSuccess.bind(this))
 		req.fail(this.saveFail.bind(this))

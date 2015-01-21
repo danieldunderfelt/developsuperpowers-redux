@@ -17,7 +17,7 @@ class ContentAdminController extends Controller {
 
 	public function saveAtom()
 	{
-		$data = \Input::get('atomData');
+		$data = \Input::all();
 		$this->atom->save($data);
 
 		return $this->respond(['data' => $data], true);
@@ -42,7 +42,7 @@ class ContentAdminController extends Controller {
 	}
 
 	public function newCollection(NewCollectionRequest $request) {
-		$data = $request->get('collectionData');
+		$data = $request->all();
 		$this->collection->save($data);
 
 		return $this->respond(['data' => $data], true);
