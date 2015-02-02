@@ -8,7 +8,6 @@ html {
 }
 
 body {
-
 }
 
 .container {
@@ -21,7 +20,7 @@ body {
 	}
 
 	@include bp(desktop) {
-		width: 960px;
+		width: 980px;
 	}
 }
 
@@ -42,10 +41,10 @@ body {
 }
 
 .content-container {
+	height: 100%;
 
 	@include bp(tablet) {
-		padding-top: 1.5em;
-		width: 60%;
+		width: 70%;
 		float: left;
 		padding-left: 5%;
 	}

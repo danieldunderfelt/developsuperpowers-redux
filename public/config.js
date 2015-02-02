@@ -11,6 +11,7 @@ System.config({
   "map": {
     "geomicons-open": "npm:geomicons-open@0.0.6",
     "jquery": "npm:jquery@2.1.3",
+    "lodash": "npm:lodash@3.0.1",
     "velocity-animate": "npm:velocity-animate@1.2.1",
     "github:jspm/nodelibs-buffer@0.1.0": {
       "buffer": "npm:buffer@3.0.1"
@@ -41,6 +42,9 @@ System.config({
       "util": "github:jspm/nodelibs-util@0.1.0"
     },
     "npm:jquery@2.1.3": {
+      "process": "github:jspm/nodelibs-process@0.1.0"
+    },
+    "npm:lodash@3.0.1": {
       "process": "github:jspm/nodelibs-process@0.1.0"
     },
     "npm:util@0.10.3": {

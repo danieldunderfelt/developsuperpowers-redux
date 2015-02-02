@@ -23,6 +23,14 @@ class ContentAdminController extends Controller {
 		return $this->respond(['data' => $data], true);
 	}
 
+	public function attachAtom()
+	{
+		$data = \Input::all();
+		$this->collection->attach($data);
+
+		return $this->respond(['data' => $data], true);
+	}
+
 	public function editAtom($id = "new")
 	{
 		$atomData = null;

@@ -46,6 +46,20 @@
 			</li>
 		</ul>
 	</article>
+	<article class="edit-mode collection hidden" id="addAtomEditControls">
+		<ul>
+			<li class="name-field">
+				<label>Select atom:&nbsp;
+					<input type="text" data-fieldname="name" id="atomName" value="">
+				</label>
+			</li>
+			<li class="order-field">
+				<label>Set order:&nbsp;
+					<input type="number" data-fieldname="order" id="atomOrder" value="0">
+				</label>
+			</li>
+		</ul>
+	</article>
 	<article class="actions on-edit hidden">
 		<ul>
 			<li>

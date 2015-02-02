@@ -3,7 +3,8 @@ import AdminStateObserver from './AdminStateObserver'
 import Bus from '../lib/Bus'
 import StateUpdateCommand from '../commands/AdminStateUpdateCommand'
 import EditObjectCommand from '../commands/EditObjectCommand'
-import AdminBarView from './views/AdminBarView'
+import AdminBarView from './views/AdminBarView' // Initializes on import ;)
+import CollectionView from './views/CollectionView' // Initializes on import ;)
 import Admin from './Admin'
 
 class AdminUI {

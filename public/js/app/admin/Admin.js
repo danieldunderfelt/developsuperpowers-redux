@@ -15,7 +15,6 @@ class Admin {
 			currentApi: null // api endpoint to post data to
 		}
 
-		this.handlersPath = 'js/app/admin/handlers/'
 		this.editObject = null // if mode is edit, this stores the initial atom data
 
 		// Object references

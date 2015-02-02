@@ -61,8 +61,15 @@
     "shasum": "1101e9544f4a76b1bc3b26d452ca96d7a35e7978",
     "tarball": "http://registry.npmjs.org/base64-js/-/base64-js-0.0.8.tgz"
   },
+  "jspm": {
+    "ignore": [
+      "bench",
+      "node_modules"
+    ]
+  },
   "ignore": [
-    "bench"
+    "bench",
+    "node_modules"
   ],
   "registry": "npm",
   "format": "cjs",

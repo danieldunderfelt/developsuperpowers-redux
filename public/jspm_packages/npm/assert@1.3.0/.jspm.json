@@ -46,8 +46,12 @@
     "shasum": "03939a622582a812cc202320a0b9a56c9b815849",
     "tarball": "http://registry.npmjs.org/assert/-/assert-1.3.0.tgz"
   },
+  "jspm": {},
   "registry": "npm",
   "format": "cjs",
+  "ignore": [
+    "node_modules"
+  ],
   "dependencies": {
     "util": "util@0.10.3"
   }

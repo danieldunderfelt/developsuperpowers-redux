@@ -533,7 +533,7 @@ html {
       margin: 50px auto 0; } }
   @media screen and (min-width: 1366px) {
     .container {
-      width: 960px; } }
+      width: 980px; } }
 
 .sidebar {
   width: 100%; }
@@ -548,20 +548,21 @@ html {
       margin: 0;
       padding: 0 3% 0 0; } }
 
-@media screen and (min-width: 730px) {
-  .content-container {
-    padding-top: 1.5em;
-    width: 60%;
-    float: left;
-    padding-left: 5%; } }
-.content-container h2, .content-container p {
-  margin-top: 0;
-  margin-bottom: 1em; }
-.content-container .divider {
-  margin: 2rem 0; }
+.content-container {
+  height: 100%; }
   @media screen and (min-width: 730px) {
-    .content-container .divider {
-      margin: 1.5rem 0; } }
+    .content-container {
+      width: 70%;
+      float: left;
+      padding-left: 5%; } }
+  .content-container h2, .content-container p {
+    margin-top: 0;
+    margin-bottom: 1em; }
+  .content-container .divider {
+    margin: 2rem 0; }
+    @media screen and (min-width: 730px) {
+      .content-container .divider {
+        margin: 1.5rem 0; } }
 
 .sidebar {
   padding-top: 2em;
@@ -618,6 +619,22 @@ html {
           content: "";
           display: table;
           clear: both; } }
+
+@media screen and (min-width: 730px) {
+  .collection {
+    min-height: 70vh;
+    padding-top: 1.5em; } }
+.collection #addAtom {
+  display: none;
+  border: 2px dashed #ccc;
+  border-radius: 5px;
+  padding: 1em;
+  text-align: center;
+  margin-bottom: 1em; }
+  .collection #addAtom:nth-child(n+2) {
+    margin: 1em 0; }
+  .collection #addAtom.active {
+    display: block; }
 
 .home-page .project {
   margin-bottom: 2em; }

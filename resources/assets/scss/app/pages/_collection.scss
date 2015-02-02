@@ -1,0 +1,24 @@
+.collection {
+
+	@include bp(tablet) {
+		min-height: 70vh;
+		padding-top: 1.5em;
+	}
+
+	#addAtom {
+		display: none;
+		border: 2px dashed #ccc;
+		border-radius: 5px;
+		padding: 1em;
+		text-align: center;
+		margin-bottom: 1em;
+
+		&:nth-child(n+2) {
+			margin: 1em 0;
+		}
+
+		&.active {
+			display: block;
+		}
+	}
+}

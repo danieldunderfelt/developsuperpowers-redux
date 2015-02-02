@@ -1,34 +1,21 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
+var sourcemaps = require('gulp-sourcemaps');
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 var filter = require('gulp-filter');
-var transform = require('vinyl-transform');
-var notify = require("gulp-notify");
-
-var handleErrors = function() {
-
-    var args = Array.prototype.slice.call(arguments);
-
-    notify.onError({
-        title: "Compile Error",
-        message: "<%= error.message %>"
-    }).apply(this, args);
-
-    this.emit('end');
-};
 
 gulp.task('browser-sync', function() {
-    browserSync({
-        proxy: "dev.dev",
-        open: false,
-        online: false
-    });
+	browserSync({
+		proxy: "dev.dev",
+		open: false,
+		online: false
+	});
 });
 
 gulp.task('bs-reload', function () {
-    browserSync.reload();
+	browserSync.reload();
 });
 
 gulp.task('sass', function () {
@@ -43,7 +30,7 @@ gulp.task('sass', function () {
 });
 
 gulp.task('default', ['browser-sync'], function () {
-    gulp.watch("resources/assets/scss/**/*.scss", ['sass']);
-    gulp.watch("public/js/**/*.js", ['bs-reload']);
-    gulp.watch(["public/*.{php,html}", "app/**/*.php", "resources/**/*.php"], ['bs-reload']);
+	gulp.watch("resources/assets/scss/**/*.scss", ['sass']);
+	gulp.watch("public/js/**/*.js", ['bs-reload']);
+	gulp.watch(["public/*.{php,html}", "app/**/*.php", "resources/**/*.php"], ['bs-reload']);
 });

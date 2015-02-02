@@ -44,8 +44,15 @@
       "email": "i@izs.me"
     }
   ],
+  "jspm": {
+    "ignore": [
+      "test.js",
+      "node_modules"
+    ]
+  },
   "ignore": [
-    "test.js"
+    "test.js",
+    "node_modules"
   ],
   "registry": "npm",
   "format": "cjs",

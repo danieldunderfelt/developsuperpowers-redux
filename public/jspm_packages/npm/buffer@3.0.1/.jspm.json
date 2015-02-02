@@ -89,8 +89,15 @@
     "shasum": "d2743fff2b1d92ad532dd5716ecd9217838dfb3e",
     "tarball": "http://registry.npmjs.org/buffer/-/buffer-3.0.1.tgz"
   },
+  "jspm": {
+    "ignore": [
+      "bin",
+      "node_modules"
+    ]
+  },
   "ignore": [
-    "bin"
+    "bin",
+    "node_modules"
   ],
   "registry": "npm",
   "format": "cjs",
