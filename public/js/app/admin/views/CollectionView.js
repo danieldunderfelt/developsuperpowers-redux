@@ -1,4 +1,5 @@
 import $ from 'jquery'
+import StateUpdateCommand from '../../commands/AdminStateUpdateCommand'
 import Bus from '../../lib/Bus'
 import AdminStateObserver from '../AdminStateObserver'
 import _ from 'lodash'
@@ -29,7 +30,7 @@ class CollectionView {
 		this.editActive = true
 		this.removeUIBtns()
 
-
+		//var stateUpdate = new StateUpdateCommand('addAtom', 'addAtom', )
 	}
 
 	onHover(e) {
