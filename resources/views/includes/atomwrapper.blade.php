@@ -1,1 +1,1 @@
-<div class="superpowers-atom" data-atomid="{{ $atom->id }}" data-atomname="{{ $atom->name }}" data-atomdescription="{{ $atom->description }}" data-atomweight="{{ $atom->pivot->order }}">{!! html_entity_decode($atom->content) !!}</div>
+<div class="superpowers-atom" data-atomid="{{ $atom->id }}" data-atomname="{{ $atom->name }}" data-atomdescription="{{ $atom->description }}" @if($atom->pivot !== null) data-atomweight="{{ $atom->pivot->order }}" @endif>{!! html_entity_decode($atom->content) !!}</div>

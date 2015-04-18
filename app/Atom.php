@@ -19,7 +19,7 @@ class Atom {
 		$atom = $this->atom->get($identifier);
 
 		if($atom === false) {
-			return "";
+			return false;
 		}
 
 		return $this->getAtomWrapper($atom);
@@ -70,6 +70,7 @@ class Atom {
 	}
 
 	private function getAtomWrapper($atom) {
+
 		return \View::make('includes.atomwrapper', [
 			'atom' => $atom
 		])->render();

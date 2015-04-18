@@ -3,6 +3,7 @@ import Observer from '../lib/Observer'
 class AdminStateObserver extends Observer {
 
 	constructor() {
+		super()
 		this.subscribers = {}
 		this.object = {}
 	}

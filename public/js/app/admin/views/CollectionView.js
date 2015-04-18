@@ -58,7 +58,7 @@ class CollectionView {
 		this.removeUIBtns()
 	}
 
-	showAtomAddBtn(pos, atom) {
+	showAtomAddBtn(pos, atom = null) {
 		this.btnsActive = true
 
 		var btn = $('#addAtom').addClass("active")
