@@ -11,13 +11,59 @@ body {
 
 }
 
+.site-header {
+
+	.container {
+		margin: 0 auto;
+	}
+
+	nav {
+		@include sidebar-width;
+
+		@include bp(mobile) {
+			width: 100%;
+		}
+
+		a, span {
+			text-align: center;
+			height: 100%;
+			width: 50%;
+			display: inline-block;
+			padding: .5em 1em;
+			border-bottom: 1px solid darken($lightgrey, 10%);
+
+			+ * {
+				border-left: 0;
+			}
+		}
+
+		span {
+			position: relative;
+
+			@include triangle(down, darken($lightgrey, 10%), before, 25px, 15px) {
+				position: absolute;
+				bottom: -15px;
+				left: 50%;
+				transform: translateX(-50%);
+			}
+
+			@include triangle(down, white, after, 23px, 13px) {
+				position: absolute;
+				bottom: -13px;
+				left: 50%;
+				transform: translateX(-50%);
+			}
+		}
+	}
+}
+
 .container {
 	@include clear;
 	width: 100%;
 	padding: 0 1em;
 
 	@include bp(tablet) {
-		margin: 50px auto 0;
+		margin: 0 auto;
 	}
 
 	@include bp(desktop) {
@@ -26,22 +72,23 @@ body {
 }
 
 .sidebar {
-	width: 100%;
+	padding-top: 1.5em;
 
 	@include r(540px) {
-		width: 70%;
 		margin: 0 auto;
 	}
 
 	@include bp(tablet) {
-		width: 30%;
 		float: left;
 		margin: 0;
-		padding: 0 3% 0 0;
+		padding: 1.5em 3% 0 0;
 	}
+
+	@include sidebar-width;
 }
 
 .page-container {
+	padding-top: 1.5em;
 
 	@include bp(tablet) {
 		padding-top: 1.5em;

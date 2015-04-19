@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*
  *	Here you may include other stylesheets from the 'common' folder.
  *	Please keep it clean from other styles.
@@ -453,6 +454,60 @@ html {
     html {
       height: 100%; } }
 
+.site-header .container {
+  margin: 0 auto; }
+.site-header nav {
+  width: 100%; }
+  @media screen and (min-width: 540px) {
+    .site-header nav {
+      width: 70%; } }
+  @media screen and (min-width: 730px) {
+    .site-header nav {
+      width: 35%; } }
+  @media screen and (min-width: 1366px) {
+    .site-header nav {
+      width: 30%; } }
+  @media screen and (max-width: 730px) {
+    .site-header nav {
+      width: 100%; } }
+  .site-header nav a, .site-header nav span {
+    text-align: center;
+    height: 100%;
+    width: 50%;
+    display: inline-block;
+    padding: .5em 1em;
+    border-bottom: 1px solid #e3e3e3; }
+    .site-header nav a + *, .site-header nav span + * {
+      border-left: 0; }
+  .site-header nav span {
+    position: relative; }
+    .site-header nav span:before {
+      content: "";
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 15px 12.5px 0 12.5px;
+      border-color: #e3e3e3 transparent transparent transparent;
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
+              transform: translateX(-50%); }
+    .site-header nav span:after {
+      content: "";
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 13px 11.5px 0 11.5px;
+      border-color: white transparent transparent transparent;
+      position: absolute;
+      bottom: -13px;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
+              transform: translateX(-50%); }
+
 .container {
   width: 100%;
   padding: 0 1em; }
@@ -462,38 +517,48 @@ html {
     clear: both; }
   @media screen and (min-width: 730px) {
     .container {
-      margin: 50px auto 0; } }
+      margin: 0 auto; } }
   @media screen and (min-width: 1366px) {
     .container {
       width: 960px; } }
 
 .sidebar {
+  padding-top: 1.5em;
   width: 100%; }
   @media screen and (min-width: 540px) {
     .sidebar {
-      width: 70%;
       margin: 0 auto; } }
   @media screen and (min-width: 730px) {
     .sidebar {
-      width: 30%;
       float: left;
       margin: 0;
-      padding: 0 3% 0 0; } }
-
-@media screen and (min-width: 730px) {
-  .page-container {
-    padding-top: 1.5em;
-    width: 60%;
-    float: left;
-    padding-left: 5%; } }
-.page-container h2, .page-container p {
-  margin-top: 0;
-  margin-bottom: 1em; }
-.page-container .divider {
-  margin: 2rem 0; }
+      padding: 1.5em 3% 0 0; } }
+  @media screen and (min-width: 540px) {
+    .sidebar {
+      width: 70%; } }
   @media screen and (min-width: 730px) {
-    .page-container .divider {
-      margin: 1.5rem 0; } }
+    .sidebar {
+      width: 35%; } }
+  @media screen and (min-width: 1366px) {
+    .sidebar {
+      width: 30%; } }
+
+.page-container {
+  padding-top: 1.5em; }
+  @media screen and (min-width: 730px) {
+    .page-container {
+      padding-top: 1.5em;
+      width: 60%;
+      float: left;
+      padding-left: 5%; } }
+  .page-container h2, .page-container p {
+    margin-top: 0;
+    margin-bottom: 1em; }
+  .page-container .divider {
+    margin: 2rem 0; }
+    @media screen and (min-width: 730px) {
+      .page-container .divider {
+        margin: 1.5rem 0; } }
 
 .sidebar {
   padding-top: 2em;
@@ -518,7 +583,8 @@ html {
     border-radius: 50%;
     overflow: hidden;
     margin-bottom: 2em;
-    transition: all 0.3s ease-out; }
+    -webkit-transition: all 0.3s ease-out;
+            transition: all 0.3s ease-out; }
     @media screen and (min-width: 730px) {
       .sidebar .profile-pic {
         width: 50%; } }
@@ -527,7 +593,8 @@ html {
           -ms-transform: scale(1.2);
               transform: scale(1.2); }
     .sidebar .profile-pic img {
-      transition: all 0.3s ease-out;
+      -webkit-transition: all 0.3s ease-out;
+              transition: all 0.3s ease-out;
       max-width: 100%;
       display: block; }
   @media screen and (min-width: 730px) {

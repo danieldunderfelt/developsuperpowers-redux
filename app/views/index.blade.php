@@ -21,6 +21,14 @@
 </head>
 <body>
 
+	<header class="site-header">
+	  <div class="container">
+	    <nav>
+	      <span>Home</span><a href="http://blog.developsuperpowers.com">Blog</a>
+	    </nav>
+	  </div>
+	</header>
+
 	<div class="container">
 		@include('includes.sidebar')
 		@yield('content')
