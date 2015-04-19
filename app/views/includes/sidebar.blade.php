@@ -19,7 +19,7 @@
 			<li>
 				<p>
 					Employed at:<br>
-					<a href="http://activearkjwt.com">
+					<a href="http://mirumagency.com">
 						<strong>Activeark JWT, Helsinki</strong>
 					</a>
 				</p>
